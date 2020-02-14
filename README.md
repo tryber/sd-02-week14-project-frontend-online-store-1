@@ -396,7 +396,7 @@ Aqui encontram-se os requisitos do projeto. Para acessar a descrição completa 
     * Exemplo: `git branch`
   * Se não estiver, mude para a branch `master`
     * Exemplo: `git checkout master`
-  * Agora, crie uma branch para a demanda que vai desenvolver do seu projeto
+  * Agora, crie uma branch para a demanda que você vai desenvolver do seu projeto
     * Você deve criar uma branch com uma breve descrição da demanda a ser desenvolvida
     * Exemplo: `git checkout -b criar-campo-de-busca`
 
