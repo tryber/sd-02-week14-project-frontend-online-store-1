@@ -392,12 +392,10 @@ Aqui encontram-se os requisitos do projeto. Para acessar a descrição completa 
     * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
 
 3. Faça alterações separadas por novas branchs criadas a partir da branch do grupo, criando uma nova branch para cada demanda
-  * Foi criada uma branch base onde você vai mergear os _Pull Requests_ do projeto do seu grupo. Antes de criar a nova branch, verifique que você está na branch do grupo `master-group-x`.
+  * Verifique que você está na branch `master`
     * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master-group-x`
-    * Exemplo: `git checkout master-group-x`, onde `x` é o número do seu grupo
-  * Atualize, na sua máquina, a branch do seu grupo:
-    * Exemplo: `git pull`
+  * Se não estiver, mude para a branch `master`
+    * Exemplo: `git checkout master`
   * Agora, crie uma branch para a demanda que vai desenvolver do seu projeto
     * Você deve criar uma branch com uma breve descrição da demanda a ser desenvolvida
     * Exemplo: `git checkout -b criar-campo-de-busca`
