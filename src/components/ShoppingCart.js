@@ -7,7 +7,6 @@ import './ShoppingCart.css';
 
 class ShoppingCart extends React.Component {
 
-
   render() {
     return (
       <div>
