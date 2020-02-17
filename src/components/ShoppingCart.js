@@ -8,17 +8,17 @@ class ShoppingCart extends React.Component {
 
 
   render() {
-      return ( 
-          <div>
-          <img src={BackArrow} alt="Seta para voltar à página inicial" className="seta" />
-          <div className="meuCarrinho">
-          <img src={Cart} alt="Imagem de um carrinho de compras" className="carrinho" />
-          <p className="textoCarrinho">Carrinho de Compras</p>
+    return (
+    <div>
+            <img src={BackArrow} alt="Seta para voltar à página inicial" className="seta" />
+            <div className="meuCarrinho">
+            <img src={Cart} alt="Imagem de um carrinho de compras" className="carrinho" />
+            <p className="textoCarrinho">Carrinho de Compras</p>
           </div>
-          <div className="minhaCaixa">
-          <img src={EmptyBox} alt="Imagem de caixa vazia indicando que não há itens no carrinho" className="caixa" />
-          <p className="textoCaixa">Seu Carrinho Está Vazio</p>
-          </div>
+           <div className="minhaCaixa">
+            <img src={EmptyBox} alt="Caixa vazia indicando que não há itens no carrinho" className="caixa" />
+            <p className="textoCaixa">Seu Carrinho Está Vazio</p>
+            </div>
           </div>);
     }
 }
