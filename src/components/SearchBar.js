@@ -1,4 +1,5 @@
 import React from 'react';
+import ItensList from './itemList';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class SearchBar extends React.Component {
       <div>
         {this.createInput()}
         {this.didSearch()}
+        <ItensList />
       </div>
     );
   }
