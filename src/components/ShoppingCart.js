@@ -19,8 +19,8 @@ class ShoppingCart extends React.Component {
           <p className="textoCarrinho">Carrinho de Compras</p>
         </div>
         <div className="minhaCaixa">
-           <img src={EmptyBox} alt="Imagem de caixa vazia" className="caixa" />
-           <p className="textoCaixa">Seu Carrinho Está Vazio</p>
+          <img src={EmptyBox} alt="Imagem de caixa vazia" className="caixa" />
+          <p className="textoCaixa">Seu Carrinho Está Vazio</p>
         </div>
       </div>);
   }
