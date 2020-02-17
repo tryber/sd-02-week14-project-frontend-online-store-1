@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <div>Inicio Projeto</div>
-      <Switch />
+      <Switch>
+        <Route exact path='/' component={SearchBar}></Route>
+      </Switch>
     </Router>
   );
 }
