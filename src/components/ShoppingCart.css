@@ -1,7 +1,7 @@
 .caixa {
-  width: 30vh;
-  position: relative;
   margin-left: -7%;
+  position: relative;
+  width: 30vh;
 }
 
 .carrinho {
@@ -9,14 +9,14 @@
  }
 
 .meuCarrinho {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .minhaCaixa {
-  position: relative;
-  margin-left: 50%;
   flex-direction: column;
+  margin-left: 50%;
+  position: relative;
 }
 
 .seta {
@@ -24,12 +24,12 @@
 }
 
 .textoCaixa {
-  font-weight: 700;
   font-size: 30px;
+  font-weight: 700;
   margin-left: -8%;
 }
 
 .textoCarrinho {
-  font-weight: 700;
   font-size: 20px;
+  font-weight: 700;
 }
