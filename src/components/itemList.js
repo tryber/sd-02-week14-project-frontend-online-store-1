@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemCard from './ItemCard';
 const pesquisarItem = require('../requisicaoItemAPI');
 
 class ItensList extends React.Component {
@@ -10,33 +11,39 @@ class ItensList extends React.Component {
     }
 
     componentDidMount() {
-        pesquisarItem().then(
+        const { search } = this.props
+        pesquisarItem(search).then(
             resposta => {
-                console.log(resposta)
                 this.setState({ itens: resposta })
             }
         )
     }
 
-    testando() {
+    componentDidUpdate() {
+        const { search } = this.props
+        pesquisarItem(search).then(
+            resposta => {
+                this.setState({ itens: resposta })
+            }
+        )
+    }
+
+    gerarLista() {
         const { itens } = this.state
-        // if (!itens) return <div />
         return (
             <div>
-                {
-                    itens.map(item => (<li>{item.title}</li>
-                    ))
+                {itens.map(item => (
+                    <ItemCard item={item} key={item.id} />
+                ))
                 }
             </div>
         )
     }
 
     render() {
-        const { itens } = this.state
-        console.log(itens)
         return (
             <div>
-                {this.testando()}
+                {this.gerarLista()}
             </div>
         )
     }
