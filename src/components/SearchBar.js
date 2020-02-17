@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
         id="searchBar"
         value={this.state.searchItem}
         onChange={this.handleChange}
-        />
+      />
     );
   }
 
@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
         {this.didSearch()}
       </div>
     );
-   }
+  }
 }
 
 export default SearchBar;
