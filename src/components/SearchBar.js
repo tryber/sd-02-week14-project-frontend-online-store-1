@@ -4,7 +4,7 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        searchItem: '',
+      searchItem: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -16,13 +16,13 @@ class SearchBar extends React.Component {
 
   createInput() {
     return (
-        <input
-            type="text"
-            id="searchBar"
-            value={this.state.searchItem}
-            onChange={this.handleChange}
-          />
-      );
+      <input
+        type="text"
+        id="searchBar"
+        value={this.state.searchItem}
+        onChange={this.handleChange}
+        />
+    );
   }
 
   didSearch() {
@@ -32,13 +32,13 @@ class SearchBar extends React.Component {
   }
 
   render() {
-      return (
-          <div>
-              {this.createInput()}
-              {this.didSearch()}
-          </div>
-        );
-    }
+    return (
+      <div>
+        {this.createInput()}
+        {this.didSearch()}
+      </div>
+    );
+   }
 }
 
 export default SearchBar;
