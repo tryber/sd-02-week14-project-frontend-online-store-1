@@ -1,15 +1,16 @@
-.seta {
-  width: 5vh;
-}
-
-.carrinho {
-   width: 5vh;
-}
-
 .caixa {
   width: 30vh;
   position: relative;
   margin-left: -7%;
+}
+
+.carrinho {
+    width: 5vh;
+ }
+
+.meuCarrinho {
+  display: flex;
+  align-items: center;
 }
 
 .minhaCaixa {
@@ -18,15 +19,14 @@
   flex-direction: column;
 }
 
+.seta {
+  width: 5vh;
+}
+
 .textoCaixa {
   font-weight: 700;
   font-size: 30px;
   margin-left: -8%;
-}
-
-.meuCarrinho {
-  display: flex;
-  align-items: center;
 }
 
 .textoCarrinho {
