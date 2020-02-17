@@ -1,0 +1,40 @@
+* {
+    margin: 1vh;
+    padding: 0;
+}
+
+#seta {
+    width: 5vh;
+}
+
+#carrinho {
+    width: 5vh;
+}
+
+#caixa {
+    width: 30vh;
+    position: relative;
+    margin-left: -7%;
+}
+
+#minhaCaixa {
+    position: relative;
+    margin-left: 50%;
+    flex-direction: column;
+}
+
+#textoCaixa {
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: -8%;
+}
+
+#meuCarrinho {
+    display: flex;
+    align-items: center;
+}
+
+#textoCarrinho {
+    font-weight: 700;
+    font-size: 20px;
+}
