@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={SearchBar}></Route>
+        <Route exact path="/" component={SearchBar} />
       </Switch>
     </Router>
   );
