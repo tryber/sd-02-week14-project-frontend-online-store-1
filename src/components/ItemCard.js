@@ -14,8 +14,8 @@ class ItemCard extends React.Component {
             <div>
                 <div>Nome do Produto: {title}</div>
                 <img src={thumbnail} alt="Produto" />
-                <p>Preço: {price}</p>
-                <p>Quantidade: {available_quantity}</p>
+                <p>Preço: R$ {price}</p>
+                <p>Quantidade: {available_quantity} un.</p>
                 <p>-------------------------------------</p>
             </div>
         )

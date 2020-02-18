@@ -7,29 +7,35 @@ class ItensList extends React.Component {
         super(props);
         this.state = {
             itens: [],
+            loading: true
         };
     }
 
     componentDidMount() {
         const { search } = this.props
+        console.log('Componeten montou')
         pesquisarItem(search).then(
             resposta => {
-                this.setState({ itens: resposta })
+                this.setState({ itens: resposta, pesquisa: search })
             }
         )
     }
 
-    componentDidUpdate() {
+
+    componentDidUpdate(prevProps, prevState) {
         const { search } = this.props
-        pesquisarItem(search).then(
-            resposta => {
-                this.setState({ itens: resposta })
-            }
-        )
+        if (search !== prevState.pesquisa) {
+            pesquisarItem(search).then(
+                resposta => {
+                    this.setState({ itens: resposta, pesquisa: search })
+                }
+            )
+        }
     }
 
     gerarLista() {
         const { itens } = this.state
+        console.log(itens)
         return (
             <div>
                 {itens.map(item => (
@@ -40,9 +46,16 @@ class ItensList extends React.Component {
         )
     }
 
+    notfound() {
+        const { itens } = this.state
+        console.log(itens.length)
+        if (!itens.length) return <div>Não foram encontrados resultados</div>
+    }
+
     render() {
         return (
             <div>
+                {this.notfound()}
                 {this.gerarLista()}
             </div>
         )
