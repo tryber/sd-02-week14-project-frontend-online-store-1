@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
   didFindResults() {
     const { searchItem } = this.state;
     if (!searchItem) return <div>Não foram encontrados resultados</div>;
-    return <ItensList search={searchItem} />
+    return <ItensList search={searchItem} />;
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React from 'react';
-import itemCSS from '../components/ItemCard.css';
+import '../components/ItemCard.css';
+import PropTypes from 'prop-types';
 
 class ItemCard extends React.Component {
   constructor(props) {
@@ -20,5 +21,14 @@ class ItemCard extends React.Component {
     );
   }
 }
+
+ItemCard.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    price: PropTypes.number,
+    available_quantity: PropTypes.number,
+    thumbnail: PropTypes.string,
+  }).isRequired
+};
 
 export default ItemCard;
