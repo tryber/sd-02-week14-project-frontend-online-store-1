@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemCard from './ItemCard';
 import PropTypes from 'prop-types';
+import ItemCard from './ItemCard';
 import './itemList.css';
 
 const pesquisarItem = require('../requisicaoItemAPI');
@@ -30,7 +30,7 @@ class ItensList extends React.Component {
         (resposta) => {
           this.setState({ itens: resposta, pesquisa: search });
         },
-      )
+      );
     }
   }
 
@@ -65,7 +65,7 @@ class ItensList extends React.Component {
 }
 
 ItensList.propTypes = {
-  search: PropTypes.string.isRequired
+  search: PropTypes.string.isRequired,
 };
 
 export default ItensList;
