@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    width: 95%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px
+}

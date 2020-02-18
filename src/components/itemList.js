@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemCard from './ItemCard';
+import itemListCSS from './itemList.css'
 const pesquisarItem = require('../requisicaoItemAPI');
 
 class ItensList extends React.Component {
@@ -37,7 +38,7 @@ class ItensList extends React.Component {
         const { itens } = this.state
         console.log(itens)
         return (
-            <div>
+            <div className='container'>
                 {itens.map(item => (
                     <ItemCard item={item} key={item.id} />
                 ))
