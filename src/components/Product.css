@@ -1,10 +1,10 @@
 .body {
-  margin: 5vw;    
+  margin: 5vw;   
 }
 
 .display {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .especificacoesTecnicas {
@@ -12,13 +12,13 @@
 }
 
 .icons {
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
 }
 
 .productImage {
-  width: 20vw;
   border: 2px solid black;
+  width: 20vw;
 }
 
 .titulo {
