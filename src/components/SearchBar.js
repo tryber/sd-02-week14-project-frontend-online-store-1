@@ -1,4 +1,5 @@
 import React from 'react';
+import ItensList from './itemList';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class SearchBar extends React.Component {
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState({ searchItem: value });
+    if (event.keyCode === 13) this.setState({ searchItem: value });
   }
 
   createInput() {
@@ -19,8 +20,7 @@ class SearchBar extends React.Component {
       <input
         type="text"
         id="searchBar"
-        value={this.state.searchItem}
-        onChange={this.handleChange}
+        onKeyDown={this.handleChange}
       />
     );
   }
@@ -31,11 +31,18 @@ class SearchBar extends React.Component {
     return <div />;
   }
 
+  didFindResults() {
+    const { searchItem } = this.state;
+    if (!searchItem) return <div>Não foram encontrados resultados</div>;
+    return <ItensList search={searchItem} />;
+  }
+
   render() {
     return (
       <div>
         {this.createInput()}
         {this.didSearch()}
+        {this.didFindResults()}
       </div>
     );
   }
