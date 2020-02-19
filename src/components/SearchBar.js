@@ -1,5 +1,8 @@
 import React from 'react';
 import ItensList from './itemList';
+import Categories from './Categories';
+import './Categories.css';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -42,7 +45,10 @@ class SearchBar extends React.Component {
       <div>
         {this.createInput()}
         {this.didSearch()}
-        {this.didFindResults()}
+        <div className="teste">
+          <Categories />
+          {this.didFindResults()}
+        </div>
       </div>
     );
   }

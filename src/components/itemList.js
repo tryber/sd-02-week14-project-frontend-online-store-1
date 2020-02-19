@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 import './itemList.css';
+
 
 const pesquisarItem = require('../requisicaoItemAPI');
 
@@ -56,10 +57,10 @@ class ItensList extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {this.notfound()}
         {this.gerarLista()}
-      </div>
+      </Fragment>
     );
   }
 }
