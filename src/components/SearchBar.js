@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
   handleClick(event) {
     const { value } = event.target;
     const { searchCategorie } = this.state;
-    const estado = event.target
+    const estado = event.target;
     if (value === searchCategorie) {
       this.setState({ searchCategorie: '' });
       estado.checked = false;
