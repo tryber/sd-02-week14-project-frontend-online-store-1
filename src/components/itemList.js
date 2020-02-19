@@ -16,7 +16,7 @@ class ItensList extends React.Component {
 
   componentDidMount() {
     const { search, categorie } = this.props;
-    this.atualizarLista(search, categorie)
+    this.atualizarLista(search, categorie);
   }
 
   atualizarLista(porItem = 0, porCategoria = 0) {
@@ -69,6 +69,7 @@ class ItensList extends React.Component {
 
 ItensList.propTypes = {
   search: PropTypes.string.isRequired,
+  categorie: PropTypes.string.isRequired,
 };
 
 export default ItensList;

@@ -26,7 +26,6 @@ class SearchBar extends React.Component {
     if (value === searchCategorie) {
       this.setState({ searchCategorie: '' });
       event.target.checked = false;
-
     }
     else this.setState({ searchCategorie: value });
   }
