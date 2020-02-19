@@ -1,0 +1,27 @@
+.body {
+  margin: 5vw;
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
+}
+
+.especificacoesTecnicas {
+  border: 2px solid black;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productImage {
+  border: 2px solid black;
+  width: 20vw;
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight: 700;
+}
