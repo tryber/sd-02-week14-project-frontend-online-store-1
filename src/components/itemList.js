@@ -16,9 +16,6 @@ class ItensList extends React.Component {
 
   componentDidMount() {
     const { search, categorie } = this.props;
-    console.log('componente montou')
-    console.log(search, categorie)
-    console.log('componente montou')
     this.atualizarLista(search, categorie)
   }
 

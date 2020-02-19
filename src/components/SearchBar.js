@@ -22,7 +22,13 @@ class SearchBar extends React.Component {
 
   handleClick(event) {
     const { value } = event.target;
-    this.setState({ searchCategorie: value })
+    const { searchCategorie } = this.state;
+    if (value === searchCategorie) {
+      this.setState({ searchCategorie: '' });
+      event.target.checked = false;
+
+    }
+    else this.setState({ searchCategorie: value });
   }
 
   createInput() {
