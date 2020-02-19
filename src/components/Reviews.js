@@ -31,7 +31,7 @@ review() {
       onChange={this.handleChange}
       />
       </form>
-      <button className="reviewButton">Avaliar</button>
+      <button type="submit" className="reviewButton">Avaliar</button>
     </div>
   );
 }
@@ -49,15 +49,21 @@ handleFormSubmit = () => {
   localStorage.setItem('Avaliação', review);
 };
 
+generateReview(){
+  const { userEmail, review } = this.state;
+  return (
+  <div>
+    <p>{ userEmail }</p>
+    <p>{ review } </p>
+  </div>
+  );
+}
+
   render() {
-    const { userEmail, review } = this.state;
     return (
       <div>
       {this.review()}
-        <div>
-          <p>{ userEmail }</p>
-          <p>{ review } </p>
-        </div>
+      {this.generateReview()}
       </div>
       );
   }
