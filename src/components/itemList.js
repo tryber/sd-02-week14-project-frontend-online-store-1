@@ -14,17 +14,17 @@ class ItensList extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { search, categorie } = this.props;
-    this.atualizarLista(search, categorie);
-  }
-
   atualizarLista(porItem = 0, porCategoria = 0) {
     pesquisarItem(porItem, porCategoria).then(
       (resposta) => {
         this.setState({ itens: resposta, pesquisaItem: porItem, pesquisaCategoria: porCategoria });
       },
     );
+  }
+
+  componentDidMount() {
+    const { search, categorie } = this.props;
+    this.atualizarLista(search, categorie);
   }
 
   componentDidUpdate(prevProps, prevState) {
