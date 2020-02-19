@@ -31,7 +31,7 @@ review() {
       onChange={this.handleChange}
       />
       </form>
-      <button type="submit" className="reviewButton">Avaliar</button>
+      <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>Avaliar</button>
     </div>
   );
 }
