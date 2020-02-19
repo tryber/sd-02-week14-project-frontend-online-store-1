@@ -16,8 +16,8 @@ class ItemCard extends React.Component {
       <Link
         to={{
           pathname: `product/${id}`,
-          state: { item: this.props.item } }
-          }>
+          state: { item: this.props.item } }}
+      >
         <div className="centralizado">
           <div>Nome do Produto: {title}</div>
           <img src={thumbnail} alt="Produto" />

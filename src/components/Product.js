@@ -40,7 +40,7 @@ class Product extends React.Component {
             <img src={Cart} alt="Carrinho de compras" className="carrinho" />
           </Link>
         </div>
-      {this.geraProduto(this.props.location.state)}
+        {this.geraProduto(this.props.location.state)}
       </div>
     );
   }
