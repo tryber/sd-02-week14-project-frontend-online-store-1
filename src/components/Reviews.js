@@ -43,10 +43,21 @@ handleChange = (event) => {
   });
 }
 
+handleFormSubmit = () => {
+  const { userEmail, review } = this.state;
+  localStorage.setItem('E-mail', userEmail);
+  localStorage.setItem('Avaliação', review);
+};
+
   render() {
+    const { userEmail, review } = this.state;
     return (
       <div>
       {this.review()}
+        <div>
+          <p>{ userEmail }</p>
+          <p>{ review } </p>
+        </div>
       </div>
       );
   }
