@@ -26,7 +26,7 @@ class Product extends React.Component {
           </div>
         </div>
       </div>
-  );
+    );
   }
 
   render() {
@@ -39,9 +39,9 @@ class Product extends React.Component {
           <Link to="/shopping-cart">
             <img src={Cart} alt="Carrinho de compras" className="carrinho" />
           </Link>
-       </div>
+        </div>
       {this.geraProduto(this.props.location.state)}
-    </div>
+      </div>
     );
   }
 }

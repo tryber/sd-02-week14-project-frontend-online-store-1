@@ -13,9 +13,11 @@ class ItemCard extends React.Component {
   render() {
     const { id, title, price, available_quantity: vQuantity, thumbnail } = this.props.item;
     return (
-      <Link to={{
+      <Link
+        to={{
           pathname: `product/${id}`,
-          state: { item: this.props.item }}}>
+          state: { item: this.props.item } }
+          }>
         <div className="centralizado">
           <div>Nome do Produto: {title}</div>
           <img src={thumbnail} alt="Produto" />
