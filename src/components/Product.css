@@ -1,13 +1,13 @@
 .body {
+  font-family: Arial , Helvetica , sans-serif;
   margin: 5vw;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .display {
   display: flex;
   flex-basis: 40%;
   justify-content: space-between;
-  margin: 0px 20px;
+  margin: 0 20px;
   max-width: 40%;
   width: 40%;
 }
@@ -15,9 +15,9 @@
 .especificacoesTecnicas {
   border: 1px solid black;
   flex-basis: 60%;
-  margin: 0px 20px;
+  margin: 0 20px;
   max-width: 60%;
-  width: 60%
+  width: 60%;
 }
 
 .icons {
@@ -47,14 +47,14 @@
 
 .reviewBox {
   border: 1px solid black;
-  padding: 10px;
   margin: 10px 0;
+  padding: 10px;
 }
 
 .reviewButton {
   border: 1px solid black;
-  padding: 10px;
   margin: 10px 0;
+  padding: 10px;
 }
 
 .titulo {
