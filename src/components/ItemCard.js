@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import AddToCartBtn from './addToCartBtn';
+import ItemListAdd from './ItemListAdd';
 import '../components/ItemCard.css';
 
 class ItemCard extends React.Component {
@@ -28,7 +28,7 @@ class ItemCard extends React.Component {
             <p>Quantidade: {vQuantity} un.</p>
           </div>
         </Link>
-        <AddToCartBtn />
+        <ItemListAdd produto={this.props.item} />
       </div>
     );
   }
