@@ -34,7 +34,7 @@ class Categories extends Component {
           id={id}
           key={id}
           value={id}
-          onChange={this.handleChange}
+          onClick={this.handleChange}
         />
         <div>{value}</div>
       </label>
