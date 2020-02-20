@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
 import './Product.css';
 import BackArrow from '../imgs/back-arrow.png';
 import Cart from '../imgs/img_290616.png';
@@ -8,7 +8,59 @@ import Cart from '../imgs/img_290616.png';
 class Product extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    const { item } = this.props.location.state;
+    const { quantity } = item;
+
+    this.state = {
+      attributes: [],
+      productCount: quantity,
+    };
+
+    this.decreaseCount = this.decreaseCount.bind(this);
+    this.incrementCount = this.incrementCount.bind(this);
+    this.addCart = this.addCart.bind(this);
+  }
+
+  // componentDidMount() {
+  //   const { item } = this.props.location.state;
+  //   const { productInfo } = item;
+  //   requisicaoItemAPI.pesquisarItem(productInfo.category, productInfo.item)
+  //   .then((products) => products.results.find((x) => x.id === item.id))
+  //   .then((response) => response.attributes.map((element) =>
+  //   this.setState((state) =>
+  //   ({ attributes: [...state.attributes, `${element.name}: ${element.value_name}`] }))));
+  // }
+
+  decreaseCount() {
+    const { productCount } = this.state;
+    if (productCount <= 1) return false;
+    return this.setState({ productCount: productCount - 1 });
+  }
+
+  incrementCount() {
+    const { productCount } = this.state;
+    return this.setState({ productCount: productCount + 1 });
+  }
+
+  addCart() {
+    const { item } = this.props.location.state;
+    let { productCount } = this.state;
+    if (!localStorage.products) {
+      productCount += 1;
+      localStorage.setItem('products', JSON.stringify([item]));
+      return this.setState({ productCount: 1 });
+    }
+    const products = JSON.parse(localStorage.getItem('products'));
+    if (localStorage.products.includes(item.id)) {
+      const index = products.findIndex((x) => x.id === item.id);
+      products[index].quantity += productCount;
+      localStorage.setItem('products', JSON.stringify(products));
+      return this.setState({ productCount: 1 });
+    }
+    productCount += 1;
+    localStorage.setItem('products', JSON.stringify([...products, item]));
+    return this.setState({ productCount: 1 });
   }
 
   geraProduto() {
@@ -30,6 +82,7 @@ class Product extends React.Component {
   }
 
   render() {
+    const { productCount } = this.state;
     return (
       <div className="body">
         <div className="icons">
@@ -41,6 +94,13 @@ class Product extends React.Component {
           </Link>
         </div>
         {this.geraProduto(this.props.location.state)}
+        <div>
+          <p>Quantidade</p>
+          <button onClick={this.decreaseCount}>-</button>
+          <p>{productCount}</p>
+          <button onClick={this.incrementCount}>+</button>
+          <button onClick={this.addCart}>Adicionar ao carrinho</button>
+        </div>
       </div>
     );
   }
