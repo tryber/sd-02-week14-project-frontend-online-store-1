@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './Product.css';
 import BackArrow from '../imgs/back-arrow.png';
 import Cart from '../imgs/img_290616.png';
-import AddToCartBtn from './addToCartBtn';
 
 class Product extends React.Component {
   constructor(props) {
@@ -26,7 +25,6 @@ class Product extends React.Component {
           ))}
           </div>
         </div>
-        <AddToCartBtn />
       </div>
     );
   }
