@@ -1,12 +1,20 @@
 import React from 'react';
+import './Reviews.css';
+
+
 class Reviews extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
           userEmail: '',
           review: '',
+          result: [{
+            userEmailSubmit: '',
+            reviewSubmit: '',
+          }],
         };
         this.review = this.review.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
 }
 
 review() {
@@ -43,21 +51,28 @@ handleChange = (event) => {
   });
 }
 
-handleFormSubmit = () => {
-  const { userEmail, review } = this.state;
-  localStorage.setItem('E-mail', userEmail);
-  localStorage.setItem('Avaliação', review);
-};
-
 generateReview(){
-  const { userEmail, review } = this.state;
+  const { result } = this.state;
   return (
   <div>
-    <p>{ userEmail }</p>
-    <p>{ review } </p>
+    {result.map((resultado) => (
+      <div>
+      <p>{ resultado.userEmailSubmit } </p>
+      <p>{ resultado.reviewSubmit } </p>
+    </div>
+    ))}
   </div>
   );
 }
+
+handleFormSubmit = () => {
+  const { userEmail, review } = this.state;
+  this.setState((state) => ({
+    result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review, }]
+  }));
+  localStorage.setItem('E-mail', userEmail);
+  localStorage.setItem('Avaliação', review);
+};
 
   render() {
     return (
