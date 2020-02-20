@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import AddToCartBtn from './addToCartBtn';
 import '../components/ItemCard.css';
 
 class ItemCard extends React.Component {
@@ -13,18 +14,22 @@ class ItemCard extends React.Component {
   render() {
     const { id, title, price, available_quantity: vQuantity, thumbnail } = this.props.item;
     return (
-      <Link
-        to={{
-          pathname: `product/${id}`,
-          state: { item: this.props.item } }}
-      >
-        <div className="centralizado">
-          <div>Nome do Produto: {title}</div>
-          <img src={thumbnail} alt="Produto" />
-          <p>Preço: R$ {price}</p>
-          <p>Quantidade: {vQuantity} un.</p>
-        </div>
-      </Link>
+      <div>
+        <Link
+          to={{
+            pathname: `product/${id}`,
+            state: { item: this.props.item }
+          }}
+        >
+          <div className="centralizado">
+            <div>Nome do Produto: {title}</div>
+            <img src={thumbnail} alt="Produto" />
+            <p>Preço: R$ {price}</p>
+            <p>Quantidade: {vQuantity} un.</p>
+          </div>
+        </Link>
+        <AddToCartBtn />
+      </div>
     );
   }
 }
