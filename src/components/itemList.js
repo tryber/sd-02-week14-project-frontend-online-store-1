@@ -15,29 +15,32 @@ class ItensList extends React.Component {
   }
 
   componentDidMount() {
-    const { search } = this.props;
-    pesquisarItem(search).then(
-      (resposta) => {
-        this.setState({ itens: resposta, pesquisa: search });
-      },
-    );
+    const { search, categorie } = this.props;
+    this.atualizarLista(search, categorie);
   }
 
-
   componentDidUpdate(prevProps, prevState) {
-    const { search } = this.props;
-    if (search !== prevState.pesquisa) {
-      pesquisarItem(search).then(
+    const { search, categorie } = this.props;
+    if (search !== prevState.pesquisaItem || categorie !== prevState.pesquisaCategoria) {
+      pesquisarItem(search, categorie).then(
         (resposta) => {
-          this.setState({ itens: resposta, pesquisa: search });
+          this.setState({ itens: resposta, pesquisaItem: search, pesquisaCategoria: categorie });
         },
       );
     }
   }
 
+  atualizarLista(porItem = 0, porCategoria = 0) {
+    pesquisarItem(porItem, porCategoria).then(
+      (resposta) => {
+        this.setState({ itens: resposta, pesquisaItem: porItem, pesquisaCategoria: porCategoria });
+      },
+    );
+  }
+
   gerarLista() {
-    const { itens } = this.state;
-    console.log(itens);
+    const { itens, pesquisaItem, pesquisaCategoria } = this.state;
+    console.log(itens, pesquisaItem, pesquisaCategoria);
     return (
       <div className="container">
         {itens.map((item) => (
@@ -50,7 +53,6 @@ class ItensList extends React.Component {
 
   notfound() {
     const { itens } = this.state;
-    console.log(itens.length);
     if (!itens.length) return <div>Não foram encontrados resultados</div>;
     return <div />;
   }
@@ -67,6 +69,7 @@ class ItensList extends React.Component {
 
 ItensList.propTypes = {
   search: PropTypes.string.isRequired,
+  categorie: PropTypes.string.isRequired,
 };
 
 export default ItensList;
