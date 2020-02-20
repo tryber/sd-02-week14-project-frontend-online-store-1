@@ -17,6 +17,8 @@ class ShoppingCart extends React.Component {
           {/* {arranjoItens.map((produtoID) => {
             <li key={produtoID}><CardShoppinCar id={produtoID} /></li>
           })} */}
+          <div>Valor total da Compra: </div>
+          <button>Finalizar Compra</button>
         </div>
       )
     }
