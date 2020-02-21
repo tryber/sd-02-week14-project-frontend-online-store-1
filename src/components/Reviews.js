@@ -16,12 +16,20 @@ class Reviews extends React.Component {
     };
     this.review = this.review.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     let { result } = this.state;
     result = JSON.parse(localStorage.getItem('Comentários'));
     this.setState({ result });
+  }
+
+  handleChange(event) {
+    const { value, name } = event.target;
+    this.setState(() => {
+      this.setState({ [name]: value });
+    });
   }
 
   handleFormSubmit() {
@@ -47,7 +55,7 @@ class Reviews extends React.Component {
   review() {
     return (
       <div className="reviewBox">
-      <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
         <input
           type="text"
           className="userEmail"
@@ -71,13 +79,6 @@ class Reviews extends React.Component {
       </button>
       </div>
     );
-  }
-
-  handleChange(event) {
-    const { value, name } = event.target;
-    this.setState(() => {
-      this.setState({ [name]: value });
-    });
   }
 
   render() {
