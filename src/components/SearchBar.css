@@ -31,7 +31,7 @@
 }
 
 .numeroItens {
-  background-image: URL('../imgs/img_290616.png');
+  background-image: url('../imgs/img_290616.png');
   background-size: 50px;
   border: 1px solid black;
   display: flex;
