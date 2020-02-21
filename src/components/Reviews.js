@@ -45,7 +45,7 @@ review() {
   );
 }
 
-handleChange = (event) => {
+handleChange(event) {
   const { value, name } = event.target;
   this.setState( () => {
     this.setState({ [name]: value })
