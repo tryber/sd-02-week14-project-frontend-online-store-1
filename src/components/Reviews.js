@@ -57,7 +57,7 @@ generateReview(){
   <div>
     {result.map((resultado) => (
       <div>
-      <p>{ resultado.userEmailSubmit } </p>
+      <p><strong>{ resultado.userEmailSubmit }:</strong></p>
       <p>{ resultado.reviewSubmit } </p>
     </div>
     ))}
@@ -65,7 +65,7 @@ generateReview(){
   );
 }
 
-handleFormSubmit = () => {
+handleFormSubmit() {
   const { userEmail, review } = this.state;
   this.setState((state) => ({
     result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review, }]
@@ -83,5 +83,6 @@ handleFormSubmit = () => {
       );
   }
   }
+  
 
 export default Reviews;
