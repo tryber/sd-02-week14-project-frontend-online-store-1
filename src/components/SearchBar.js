@@ -73,15 +73,19 @@ class SearchBar extends React.Component {
 
   didSearch() {
     const { searchItem, searchCategorie } = this.state;
-    if (!searchItem && !searchCategorie) return (
-      <div className="textoBusca">Você ainda não realizou uma busca</div>);
+    if (!searchItem && !searchCategorie) {
+      return (
+        <div className="textoBusca">Você ainda não realizou uma busca</div>);
+    }
     return <div />;
   }
 
   didFindResults() {
     const { searchItem, searchCategorie } = this.state;
-    if (!searchItem && !searchCategorie) return (
-      <div className="textoBusca">Não foram encontrados resultados</div>);
+    if (!searchItem && !searchCategorie) {
+      return (
+        <div className="textoBusca">Não foram encontrados resultados</div>)
+    };
     return (<ItensList
       search={searchItem}
       categorie={searchCategorie}
