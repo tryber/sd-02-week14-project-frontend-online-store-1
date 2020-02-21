@@ -13,6 +13,7 @@ class ItemCard extends React.Component {
   }
   render() {
     const { id, title, price, available_quantity: vQuantity, thumbnail } = this.props.item;
+    const { modificaIconeCarrinho } = this.props;
     return (
       <div>
         <Link
@@ -24,11 +25,11 @@ class ItemCard extends React.Component {
           <div className="centralizado">
             <div>Nome do Produto: {title}</div>
             <img src={thumbnail} alt="Produto" />
-            <p>Preço: R$ {price}</p>
+            <p>Preço:  R$ {price}</p>
             <p>Quantidade: {vQuantity} un.</p>
           </div>
         </Link>
-        <ItemListAdd produto={this.props.item} />
+        <ItemListAdd produto={this.props.item} modificaIconeCarrinho={modificaIconeCarrinho} />
       </div>
     );
   }
@@ -42,6 +43,7 @@ ItemCard.propTypes = {
     thumbnail: PropTypes.string,
     id: PropTypes.string,
   }).isRequired,
+  modificaIconeCarrinho: PropTypes.func.isRequired,
 };
 
 export default ItemCard;
