@@ -38,10 +38,10 @@ class Reviews extends React.Component {
       <div>
         {result.map((resultado) => (
           <div>
-            <p><strong>{ resultado.userEmailSubmit }</strong></p>
-            <p>{ resultado.reviewSubmit } </p>
+            <p><strong>{resultado.userEmailSubmit}</strong></p>
+            <p>{resultado.reviewSubmit} </p>
           </div>
-    ))}
+        ))}
       </div>
     );
   }
@@ -51,25 +51,25 @@ class Reviews extends React.Component {
       <div className="reviewBox">
         <form onSubmit={this.handleFormSubmit}>
           <input
-          type="text"
-          className="userEmail"
-          name="userEmail"
-          placeholder="E-mail"
-          value={this.state.userEmail}
-          onChange={this.handleChange}
-        />
-         <textarea
-          type="text"
-          className="review"
-          name="review"
-          placeholder="Mensagem (opcional)"
-          value={this.state.review}
-          maxLength="1000"
-          onChange={this.handleChange}
-        />
-       </form>
+            type="text"
+            className="userEmail"
+            name="userEmail"
+            placeholder="E-mail"
+            value={this.state.userEmail}
+            onChange={this.handleChange}
+          />
+          <textarea
+            type="text"
+            className="review"
+            name="review"
+            placeholder="Mensagem (opcional)"
+            value={this.state.review}
+            maxLength="1000"
+            onChange={this.handleChange}
+          />
+        </form>
         <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
-        Avaliar
+          Avaliar
       </button>
       </div>
     );
@@ -85,7 +85,7 @@ class Reviews extends React.Component {
       </div>
     );
   }
-  }
-  
+}
+
 
 export default Reviews;
