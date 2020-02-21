@@ -84,8 +84,8 @@ class SearchBar extends React.Component {
     const { searchItem, searchCategorie } = this.state;
     if (!searchItem && !searchCategorie) {
       return (
-        <div className="textoBusca">Não foram encontrados resultados</div>)
-    };
+        <div className="textoBusca">Não foram encontrados resultados</div>);
+    }
     return (<ItensList
       search={searchItem}
       categorie={searchCategorie}
