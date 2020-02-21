@@ -18,29 +18,29 @@ class Reviews extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleFormSubmit() {
-    this.setState((state) => ({
-    result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review }]
-  }));
-  }
-
   componentDidMount() {
     let { result } = this.state;
     result = JSON.parse(localStorage.getItem('Comentários'));
     this.setState({ result });
   }
 
+  handleFormSubmit() {
+    this.setState((state) => ({
+      result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review }]
+    }));
+  }
+
   generateReview() {
     const { result } = this.state;
     return (
-    <div>
-    {result.map((resultado) => (
       <div>
+      {result.map((resultado) => (
+        <div>
         <p><strong>{ resultado.userEmailSubmit }</strong></p>
         <p>{ resultado.reviewSubmit } </p>
-      </div>
+        </div>
     ))}
-  </div>
+      </div>
   );
   }
 
@@ -73,10 +73,10 @@ class Reviews extends React.Component {
 
   handleChange(event) {
   const { value, name } = event.target;
-  this.setState(() => {
+    this.setState(() => {
     this.setState({ [name]: value });
   });
-}
+  }
 
   render() {
     const { result } = this.state;
