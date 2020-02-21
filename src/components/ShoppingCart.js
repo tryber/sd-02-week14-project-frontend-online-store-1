@@ -11,23 +11,16 @@ class ShoppingCart extends React.Component {
   listaCheia() {
     if (localStorage.getItem('products')) {
       return (
-      <div>
-        <ListaCarrinho />
-    </div>)
-      }
+        <div>
+          <ListaCarrinho />
+        </div>)
     }
-    
+  }
+
   listaVazia() {
     if (!localStorage.getItem('products')) {
       return (
         <div>
-          <Link to="/">
-            <img src={BackArrow} alt="Seta para voltar à página inicial" className="seta" />
-          </Link>
-          <div className="meuCarrinho">
-            <img src={Cart} alt="Imagem de um carrinho de compras" className="carrinho" />
-            <p className="textoCarrinho">Carrinho de Compras</p>
-          </div>
           <div className="minhaCaixa">
             <img src={EmptyBox} alt="Imagem de caixa vazia" className="caixa" />
             <p className="textoCaixa">Seu Carrinho Está Vazio</p>
@@ -39,11 +32,18 @@ class ShoppingCart extends React.Component {
   render() {
     return (
       <div>
-          {this.listaVazia()}
-          {this.listaCheia()}
+        <Link to="/">
+          <img src={BackArrow} alt="Seta para voltar à página inicial" className="seta" />
+        </Link>
+        <div className="meuCarrinho">
+          <img src={Cart} alt="Imagem de um carrinho de compras" className="carrinho" />
+          <p className="textoCarrinho">Carrinho de Compras</p>
         </div>
-        )
-      }
-    }
-    
-    export default ShoppingCart;
+        {this.listaVazia()}
+        {this.listaCheia()}
+      </div>
+    )
+  }
+}
+
+export default ShoppingCart;
