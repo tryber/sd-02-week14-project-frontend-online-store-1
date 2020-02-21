@@ -26,7 +26,7 @@ class Reviews extends React.Component {
 
   handleFormSubmit() {
     this.setState((state) => ({
-      result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review }]
+      result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review }],
     }));
   }
 
@@ -35,10 +35,10 @@ class Reviews extends React.Component {
     return (
       <div>
         {result.map((resultado) => (
-        <div>
+          <div>
           <p><strong>{ resultado.userEmailSubmit }</strong></p>
           <p>{ resultado.reviewSubmit } </p>
-        </div>
+          </div>
     ))}
       </div>
     );
@@ -46,7 +46,7 @@ class Reviews extends React.Component {
 
   review() {
     return (
-    <div className="reviewBox">
+      <div className="reviewBox">
       <form onSubmit={this.handleFormSubmit}>
         <input
           type="text"
@@ -66,7 +66,9 @@ class Reviews extends React.Component {
           onChange={this.handleChange}
         />
       </form>
-      <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>Avaliar</button>
+      <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
+        Avaliar
+      </button>
     </div>
     );
   }
