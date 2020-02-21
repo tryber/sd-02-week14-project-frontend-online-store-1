@@ -3,19 +3,19 @@ import './Reviews.css';
 
 
 class Reviews extends React.Component {
-    constructor(props) {
-        super(props);
-       const teste = JSON.parse(localStorage.getItem('Comentários'));
-        this.state = {
-          userEmail: '',
-          review: '',
-          result: teste || [{
-            userEmailSubmit: '',
-            reviewSubmit: '',
-          }],
-        };
-        this.review = this.review.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  constructor(props) {
+    super(props);
+    const teste = JSON.parse(localStorage.getItem('Comentários'));
+    this.state = {
+    userEmail: '',
+    review: '',
+    result: teste || [{
+    userEmailSubmit: '',
+    reviewSubmit: '',
+    }],
+    };
+    this.review = this.review.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
 }
 
 review() {
@@ -89,6 +89,5 @@ componentDidMount() {
       );
   }
   }
-  
 
 export default Reviews;
