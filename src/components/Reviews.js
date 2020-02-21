@@ -12,40 +12,40 @@ class Reviews extends React.Component {
       result: teste || [{
         userEmailSubmit: '',
         reviewSubmit: '',
-     }],
+      }],
     };
     this.review = this.review.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  handleFormSubmit() {
+    this.setState((state) => ({
+    result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review }]
+  }));
+  }
+
+  componentDidMount() {
+    let { result } = this.state;
+    result = JSON.parse(localStorage.getItem('Comentários'));
+    this.setState({ result });
+  }
+
   generateReview() {
-  const { result } = this.state;
-  return (
-  <div>
+    const { result } = this.state;
+    return (
+    <div>
     {result.map((resultado) => (
       <div>
         <p><strong>{ resultado.userEmailSubmit }</strong></p>
         <p>{ resultado.reviewSubmit } </p>
-    </div>
+      </div>
     ))}
   </div>
   );
-}
-
-  handleFormSubmit() {
-  this.setState((state) => ({
-    result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review, }]
-  }));
-};
-
-  componentDidMount() {
-  let { result } = this.state;
-  result = JSON.parse(localStorage.getItem('Comentários'));
-  this.setState({ result });
-}
+  }
 
   review() {
-  return (
+    return (
     <div className="reviewBox">
       <form onSubmit={this.handleFormSubmit}>
         <input
@@ -69,9 +69,9 @@ class Reviews extends React.Component {
       <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>Avaliar</button>
     </div>
   );
-}
+  }
 
-handleChange(event) {
+  handleChange(event) {
   const { value, name } = event.target;
   this.setState(() => {
     this.setState({ [name]: value });
@@ -83,10 +83,10 @@ handleChange(event) {
     localStorage.setItem('Comentários', JSON.stringify(result));
     return (
       <div>
-      {this.review()}
-      {this.generateReview()}
+        {this.review()}
+        {this.generateReview()}
       </div>
-      );
+    );
   }
   }
 
