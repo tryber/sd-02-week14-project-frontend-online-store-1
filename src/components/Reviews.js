@@ -19,12 +19,6 @@ class Reviews extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    let { result } = this.state;
-    result = JSON.parse(localStorage.getItem('Comentários'));
-    this.setState({ result });
-  }
-
   handleChange(event) {
     const { value, name } = event.target;
     this.setState(() => {
