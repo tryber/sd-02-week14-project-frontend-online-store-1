@@ -40,7 +40,7 @@ class ItensList extends React.Component {
 
   gerarLista() {
     const { itens, pesquisaItem, pesquisaCategoria } = this.state;
-    const { modificaIconeCarrinho } = this.props
+    const { modificaIconeCarrinho } = this.props;
     console.log(itens, pesquisaItem, pesquisaCategoria);
     return (
       <div className="container">
