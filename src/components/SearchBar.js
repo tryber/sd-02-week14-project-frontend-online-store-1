@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     const objProdutos = JSON.parse(localStorage.getItem('products'));
-    const ids = Object.keys(objProdutos).length;
+    const ids = objProdutos ? Object.keys(objProdutos).length : 0;
     this.state = {
       searchItem: '',
       searchCategorie: '',
