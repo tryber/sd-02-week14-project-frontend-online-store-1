@@ -43,7 +43,7 @@ ItemCard.propTypes = {
     thumbnail: PropTypes.string,
     id: PropTypes.string,
   }).isRequired,
-  adicionaItemImgCarrinho: PropTypes.func.isRequired,
+  modificaIconeCarrinho: PropTypes.func.isRequired,
 };
 
 export default ItemCard;

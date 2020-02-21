@@ -51,19 +51,19 @@ class SearchBar extends React.Component {
     const ids = Object.keys(objProdutos).length;
     this.setState({
       nItens: ids,
-    })
+    });
   }
 
   criarLinkCarrinho() {
-    const { nItens } = this.state
+    const { nItens } = this.state;
     return (
       <div>
-        <Link to='./shopping-cart'>
-          <img src={Cart} height='15px' alt='carrinho' />
+        <Link to="./shopping-cart">
+          <img src={Cart} height="15px" alt="carrinho" />
           <div>{nItens}</div>
         </Link>
       </div>
-    )
+    );
   }
 
   didSearch() {
@@ -75,7 +75,11 @@ class SearchBar extends React.Component {
   didFindResults() {
     const { searchItem, searchCategorie } = this.state;
     if (!searchItem && !searchCategorie) return <div>Não foram encontrados resultados</div>;
-    return <ItensList search={searchItem} categorie={searchCategorie} modificaIconeCarrinho={this.adicionaItemImgCarrinho} />;
+    return <ItensList
+      search={searchItem}
+      categorie={searchCategorie}
+      modificaIconeCarrinho={this.adicionaItemImgCarrinho}
+    />;
   }
 
   render() {
