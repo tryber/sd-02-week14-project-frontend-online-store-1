@@ -46,7 +46,7 @@ class ListaCarrinho extends React.Component {
   }
 
   removerUnidade(index) {
-    let { quantidade, price } = this.state.valores[index];
+    let { quantidade} = this.state.valores[index];
     const { price } = this.state.valores[index];
     if (quantidade === 0) return '';
     quantidade -= 1;
