@@ -25,7 +25,7 @@ class ItemCard extends React.Component {
           <div className="centralizado">
             <div>Nome do Produto: {title}</div>
             <img src={thumbnail} alt="Produto" />
-            <p>Preço: R$ {price}</p>
+            <p>Preço:  R$ {price}</p>
             <p>Quantidade: {vQuantity} un.</p>
           </div>
         </Link>
