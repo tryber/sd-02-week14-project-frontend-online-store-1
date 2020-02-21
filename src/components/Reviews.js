@@ -56,7 +56,7 @@ class Reviews extends React.Component {
     return (
       <div className="reviewBox">
         <form onSubmit={this.handleFormSubmit}>
-        <input
+          <input
           type="text"
           className="userEmail"
           name="userEmail"
@@ -64,7 +64,7 @@ class Reviews extends React.Component {
           value={this.state.userEmail}
           onChange={this.handleChange}
         />
-        <textarea
+         <textarea
           type="text"
           className="review"
           name="review"
@@ -73,7 +73,7 @@ class Reviews extends React.Component {
           maxLength="1000"
           onChange={this.handleChange}
         />
-      </form>
+       </form>
         <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
         Avaliar
       </button>
