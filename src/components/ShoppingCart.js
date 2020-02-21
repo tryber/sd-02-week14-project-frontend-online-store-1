@@ -1,11 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ListaCarrinho from './ListaCarrinho';
 import BackArrow from '../imgs/back-arrow.png';
 import Cart from '../imgs/img_290616.png';
 import EmptyBox from '../imgs/empty.png';
 import './ShoppingCart.css';
 
 class ShoppingCart extends React.Component {
+
+  listaCheia() {
+    console.log(this);
+    if (localStorage.getItem('products')) {
+      return (
+        <div>
+          <ListaCarrinho />
+        </div>);
+    }
+    return '';
+  }
+
+  listaVazia() {
+    console.log(this);
+    if (!localStorage.getItem('products')) {
+      return (
+        <div>
+          <div className="minhaCaixa">
+            <img src={EmptyBox} alt="Imagem de caixa vazia" className="caixa" />
+            <p className="textoCaixa">Seu Carrinho Está Vazio</p>
+          </div>
+        </div>);
+    }
+    return '';
+  }
 
   render() {
     return (
@@ -17,11 +43,10 @@ class ShoppingCart extends React.Component {
           <img src={Cart} alt="Imagem de um carrinho de compras" className="carrinho" />
           <p className="textoCarrinho">Carrinho de Compras</p>
         </div>
-        <div className="minhaCaixa">
-          <img src={EmptyBox} alt="Imagem de caixa vazia" className="caixa" />
-          <p className="textoCaixa">Seu Carrinho Está Vazio</p>
-        </div>
-      </div>);
+        {this.listaVazia()}
+        {this.listaCheia()}
+      </div>
+    );
   }
 }
 
