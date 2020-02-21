@@ -40,11 +40,12 @@ class ItensList extends React.Component {
 
   gerarLista() {
     const { itens, pesquisaItem, pesquisaCategoria } = this.state;
+    const { modificaIconeCarrinho } = this.props
     console.log(itens, pesquisaItem, pesquisaCategoria);
     return (
       <div className="container">
         {itens.map((item) => (
-          <ItemCard item={item} key={item.id} />
+          <ItemCard item={item} key={item.id} modificaIconeCarrinho={modificaIconeCarrinho} />
         ))
         }
       </div>
@@ -70,6 +71,7 @@ class ItensList extends React.Component {
 ItensList.propTypes = {
   search: PropTypes.string.isRequired,
   categorie: PropTypes.string.isRequired,
+  modificaIconeCarrinho: PropTypes.func.isRequired,
 };
 
 export default ItensList;
