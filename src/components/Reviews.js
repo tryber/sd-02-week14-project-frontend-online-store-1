@@ -10,48 +10,41 @@ class Reviews extends React.Component {
       userEmail: '',
       review: '',
       result: teste || [{
-      userEmailSubmit: '',
-      reviewSubmit: '',
-    }],
+        userEmailSubmit: '',
+        reviewSubmit: '',
+     }],
     };
     this.review = this.review.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-handleChange(event) {
-  const { value, name } = event.target;
-  this.setState( () => {
-    this.setState({ [name]: value })
-  });
-}
-
-generateReview(){
+  generateReview() {
   const { result } = this.state;
   return (
   <div>
     {result.map((resultado) => (
       <div>
-      <p><strong>{ resultado.userEmailSubmit }</strong></p>
-      <p>{ resultado.reviewSubmit } </p>
+        <p><strong>{ resultado.userEmailSubmit }</strong></p>
+        <p>{ resultado.reviewSubmit } </p>
     </div>
     ))}
   </div>
   );
 }
 
-handleFormSubmit() {
+  handleFormSubmit() {
   this.setState((state) => ({
     result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review, }]
   }));
 };
 
-componentDidMount() {
+  componentDidMount() {
   let { result } = this.state;
   result = JSON.parse(localStorage.getItem('Comentários'));
   this.setState({ result });
 }
 
-review() {
+  review() {
   return (
     <div className="reviewBox">
       <form onSubmit={this.handleFormSubmit}>
@@ -64,18 +57,25 @@ review() {
           onChange={this.handleChange}
         />
         <textarea
-        type="text"
-        className="review"
-        name="review"
-        placeholder="Mensagem (opcional)"
-        value={this.state.review}
-        maxLength="1000"
-        onChange={this.handleChange}
+          type="text"
+          className="review"
+          name="review"
+          placeholder="Mensagem (opcional)"
+          value={this.state.review}
+          maxLength="1000"
+          onChange={this.handleChange}
         />
       </form>
       <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>Avaliar</button>
     </div>
   );
+}
+
+handleChange(event) {
+  const { value, name } = event.target;
+  this.setState(() => {
+    this.setState({ [name]: value });
+  });
 }
 
   render() {
