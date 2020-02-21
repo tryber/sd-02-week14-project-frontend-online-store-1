@@ -4,11 +4,12 @@ import './Reviews.css';
 
 class Reviews extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+       const teste = JSON.parse(localStorage.getItem('Comentários'));
         this.state = {
           userEmail: '',
           review: '',
-          result: [{
+          result: teste || [{
             userEmailSubmit: '',
             reviewSubmit: '',
           }],
@@ -57,7 +58,7 @@ generateReview(){
   <div>
     {result.map((resultado) => (
       <div>
-      <p><strong>{ resultado.userEmailSubmit }:</strong></p>
+      <p><strong>{ resultado.userEmailSubmit }</strong></p>
       <p>{ resultado.reviewSubmit } </p>
     </div>
     ))}
@@ -66,15 +67,20 @@ generateReview(){
 }
 
 handleFormSubmit() {
-  const { userEmail, review } = this.state;
   this.setState((state) => ({
     result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review, }]
   }));
-  localStorage.setItem('E-mail', userEmail);
-  localStorage.setItem('Avaliação', review);
 };
 
+componentDidMount() {
+  let { result } = this.state;
+  result = JSON.parse(localStorage.getItem('Comentários'));
+  this.setState({ result });
+}
+
   render() {
+    const { result } = this.state;
+    localStorage.setItem('Comentários', JSON.stringify(result));
     return (
       <div>
       {this.review()}
