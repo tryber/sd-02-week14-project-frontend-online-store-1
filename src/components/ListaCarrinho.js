@@ -8,13 +8,24 @@ class ListaCarrinho extends React.Component {
     const valores = Object.values(objProdutos);
     let valorAPagar = 0;
     for (let i = 0; i < ids.length; i += 1) {
-      valorAPagar += objProdutos[ids[i]].quantidade * objProdutos[ids[i]].price
-    };
+      valorAPagar += objProdutos[ids[i]].quantidade * objProdutos[ids[i]].price;
+    }
     this.state = {
       ids,
       valorAPagar,
       valores,
     };
+  }
+
+  setarNovoLocalStorage(update, valorAPagar) {
+    this.setState(() => {
+      const paraString = {};
+      update.forEach((elemento) => {
+        paraString[elemento.id] = elemento;
+      });
+      localStorage.setItem('products', JSON.stringify(paraString));
+      return { valores: update, valorAPagar };
+    });
   }
 
   removerProduto(index) {
@@ -34,19 +45,9 @@ class ListaCarrinho extends React.Component {
     });
   }
 
-  setarNovoLocalStorage(update, valorAPagar) {
-    this.setState(() => {
-      const paraString = {};
-      update.forEach((elemento) => {
-        paraString[elemento.id] = elemento;
-      });
-      localStorage.setItem('products', JSON.stringify(paraString));
-      return { valores: update, valorAPagar };
-    });
-  }
-
   removerUnidade(index) {
     let { quantidade, price } = this.state.valores[index];
+    const { price } = this.state.valores[index];
     if (quantidade === 0) return '';
     quantidade -= 1;
     let { valorAPagar } = this.state;
@@ -54,10 +55,12 @@ class ListaCarrinho extends React.Component {
     const update = this.state.valores;
     update[index].quantidade = quantidade;
     this.setarNovoLocalStorage(update, valorAPagar);
+    return '';
   }
 
   adicionarUnidade(index) {
-    let { quantidade, price } = this.state.valores[index];
+    let { quantidade } = this.state.valores[index];
+    const { price } = this.state.valores[index];
     quantidade += 1;
     let { valorAPagar } = this.state;
     valorAPagar += price;

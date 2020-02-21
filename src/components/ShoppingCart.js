@@ -9,7 +9,7 @@ import './ShoppingCart.css';
 class ShoppingCart extends React.Component {
 
   listaCheia() {
-    console.log(this)
+    console.log(this);
     if (localStorage.getItem('products')) {
       return (
         <div>
@@ -20,7 +20,7 @@ class ShoppingCart extends React.Component {
   }
 
   listaVazia() {
-    console.log(this)
+    console.log(this);
     if (!localStorage.getItem('products')) {
       return (
         <div>
