@@ -34,14 +34,14 @@ class Reviews extends React.Component {
     const { result } = this.state;
     return (
       <div>
-      {result.map((resultado) => (
+        {result.map((resultado) => (
         <div>
-        <p><strong>{ resultado.userEmailSubmit }</strong></p>
-        <p>{ resultado.reviewSubmit } </p>
+          <p><strong>{ resultado.userEmailSubmit }</strong></p>
+          <p>{ resultado.reviewSubmit } </p>
         </div>
     ))}
       </div>
-  );
+    );
   }
 
   review() {
@@ -68,14 +68,14 @@ class Reviews extends React.Component {
       </form>
       <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>Avaliar</button>
     </div>
-  );
+    );
   }
 
   handleChange(event) {
-  const { value, name } = event.target;
+    const { value, name } = event.target;
     this.setState(() => {
-    this.setState({ [name]: value });
-  });
+      this.setState({ [name]: value });
+    });
   }
 
   render() {
