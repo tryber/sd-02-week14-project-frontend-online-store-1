@@ -1,4 +1,40 @@
-.teste {
+.categoria {
   display: flex;
   flex-flow: row wrap;
+}
+
+.barraPesquisa {
+  display: flex;
+  justify-content: center;
+}
+
+.inputBar {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 20px;
+  margin-top: 20px;
+  width: 80vw;
+}
+
+.textoBusca {
+  font-size: 25px;
+  text-align: center;
+}
+
+.partedeCima {
+  display: flex;
+}
+
+.iconeCarrinho {
+  align-items: center;
+  display: flex;
+}
+
+.numeroItens {
+  background-image: url('../imgs/img_290616.png');
+  background-size: 50px;
+  border: 1px solid black;
+  display: flex;
+  height: 42px;
+  width: 50px;
 }
