@@ -10,6 +10,7 @@ class Reviews extends React.Component {
     super(props);
     const teste = JSON.parse(localStorage.getItem('Comentários'));
     this.state = {
+      rating: 1,
       userEmail: '',
       review: '',
       result: teste || [{
@@ -20,6 +21,7 @@ class Reviews extends React.Component {
     this.review = this.review.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.changeRate = this.changeRate.bind(this);
   }
 
   handleChange(event) {
@@ -27,6 +29,10 @@ class Reviews extends React.Component {
     this.setState(() => {
       this.setState({ [name]: value });
     });
+  }
+
+  changeRate(rate) {
+    this.setState({ rating: rate });
   }
 
   handleFormSubmit() {
@@ -42,9 +48,25 @@ class Reviews extends React.Component {
         {result.map((resultado) => (
           <div>
             <p><strong>{resultado.userEmailSubmit}</strong></p>
-            <p>{resultado.reviewSubmit} </p>
+            <p>
+              {resultado.reviewSubmit}
+            </p>
           </div>
         ))}
+      </div>
+    );
+  }
+
+  stars() {
+    const { rating } = this.state;
+    return (
+      <div>
+        <Rating
+          initialRating={rating}
+          onChange={(rate) => this.changeRate(rate)}
+          emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
+          fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}
+        />
       </div>
     );
   }
@@ -62,9 +84,7 @@ class Reviews extends React.Component {
               value={this.state.userEmail}
               onChange={this.handleChange}
             />
-            <Rating
-            emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
-            fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}/>
+            {this.stars()}
           </div>
           <textarea
             type="text"
