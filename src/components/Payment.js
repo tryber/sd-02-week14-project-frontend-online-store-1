@@ -16,6 +16,7 @@ class Payment extends React.Component {
         <RevisaoProdutos />
         <InformacoesComprador />
         <MetodoPagamento />
+        <button>Pagar</button>
       </div>
     )
   }
