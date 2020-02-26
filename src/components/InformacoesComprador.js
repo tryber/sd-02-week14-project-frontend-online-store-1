@@ -4,6 +4,7 @@ import states from './estados';
 class InfoComprador extends React.Component {
 
   criarInput(type, name, placeholder) {
+    console.log(this.props)
     return (
       <input
         type={type}
@@ -39,7 +40,7 @@ class InfoComprador extends React.Component {
           </select>
         </form>
       </div>
-    )
+    );
   }
 
 }

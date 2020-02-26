@@ -4,25 +4,23 @@ import ItemCardRevisar from './ItemCardRevisar';
 class RevisaoProduto extends React.Component {
   constructor(props) {
     super(props);
-    const objProdutos = JSON.parse(localStorage.getItem('products'));
-    const ids = Object.keys(objProdutos);
-    const valores = Object.values(objProdutos);
+    const valores = Object.values(JSON.parse(localStorage.getItem('products')));
     let valorAPagar = 0;
-    for (let i = 0; i < ids.length; i += 1) {
-      valorAPagar += objProdutos[ids[i]].quantidade * objProdutos[ids[i]].price;
+    for (let i = 0; i < valores.length; i += 1) {
+      valorAPagar += valores[i].quantidade * valores[i].price;
     }
     this.state = {
-      ids,
       valorAPagar,
       valores,
     };
   }
+
   render() {
     const { valorAPagar, valores } = this.state;
     return (
       <div>
         <p>RevisaoProduto</p>
-        {valores.map(item => (
+        {valores.map((item) => (
           <div key={item.id}>
             <ItemCardRevisar item={item} />
           </div>
@@ -30,7 +28,7 @@ class RevisaoProduto extends React.Component {
         <p>Total: R$ {valorAPagar}</p>
         <p>------------------------</p>
       </div>
-    )
+    );
   }
 
 }

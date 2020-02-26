@@ -96,7 +96,7 @@ class ListaCarrinho extends React.Component {
           this.formarCard(id, index)
         ))}
         <p>Preço Total: {this.state.valorAPagar}</p>
-        <Link to='/Payment'><button>Pagamento!</button></Link>
+        <Link to="/Payment"><button>Pagamento!</button></Link>
       </div>
     );
   }

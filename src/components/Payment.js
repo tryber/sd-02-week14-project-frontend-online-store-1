@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RevisaoProdutos from './RevisaoProdutos';
 import InformacoesComprador from './InformacoesComprador';
 import MetodoPagamento from './MetodoPagamento';
-import { Link } from 'react-router-dom';
 import BackArrow from '../imgs/back-arrow.png';
 
 class Payment extends React.Component {
@@ -18,9 +18,8 @@ class Payment extends React.Component {
         <MetodoPagamento />
         <button>Pagar</button>
       </div>
-    )
+    );
   }
-
 }
 
 export default Payment;
