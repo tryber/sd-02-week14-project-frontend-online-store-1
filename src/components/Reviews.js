@@ -4,7 +4,6 @@ import goldenStar from '../imgs/goldenstar.png';
 import grayStar from '../imgs/graystar.png';
 import './Reviews.css';
 
-
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
