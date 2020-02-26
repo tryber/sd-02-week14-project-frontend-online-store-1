@@ -22,7 +22,7 @@ class InfoComprador extends React.Component {
   handleInput(event) {
     const { value, name } = event.target;
     if (!value) this.setState({ [name]: 'incompleto' });
-    else { this.setState({ [name]: value }) };
+    else this.setState({ [name]: value });
   }
 
   criarInput(type, name, placeholder) {
