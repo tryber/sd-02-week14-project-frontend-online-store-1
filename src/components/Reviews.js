@@ -1,4 +1,7 @@
 import React from 'react';
+import Rating from 'react-rating';
+import goldenStar from '../imgs/goldenstar.png';
+import grayStar from '../imgs/graystar.png';
 import './Reviews.css';
 
 
@@ -50,14 +53,19 @@ class Reviews extends React.Component {
     return (
       <div className="reviewBox">
         <form onSubmit={this.handleFormSubmit}>
-          <input
-            type="text"
-            className="userEmail"
-            name="userEmail"
-            placeholder="E-mail"
-            value={this.state.userEmail}
-            onChange={this.handleChange}
-          />
+          <div className="starRating">
+            <input
+              type="text"
+              className="userEmail"
+              name="userEmail"
+              placeholder="E-mail"
+              value={this.state.userEmail}
+              onChange={this.handleChange}
+            />
+            <Rating
+            emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
+            fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}/>
+          </div>
           <textarea
             type="text"
             className="review"
@@ -70,7 +78,7 @@ class Reviews extends React.Component {
         </form>
         <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
           Avaliar
-      </button>
+        </button>
       </div>
     );
   }
