@@ -17,7 +17,7 @@ class Reviews extends React.Component {
         reviewSubmit: '',
       }],
     };
-    this.review = this.review.bind(this);
+    this.reviewRenderized = this.reviewRenderized.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.changeRate = this.changeRate.bind(this);
@@ -40,13 +40,73 @@ class Reviews extends React.Component {
     }));
   }
 
-  generateReview() {
-    const { result } = this.state;
+  emailInput() {
+    return (
+      <input
+        type="text"
+        className="userEmail"
+        name="userEmail"
+        placeholder="E-mail"
+        value={this.state.userEmail}
+        onChange={this.handleChange}
+      />
+    );
+  }
+
+  commentInput() {
+    return (
+      <textarea
+        type="text"
+        className="review"
+        name="review"
+        placeholder="Mensagem (opcional)"
+        value={this.state.review}
+        maxLength="1000"
+        onChange={this.handleChange}
+      />
+    );
+  }
+
+  writeReview() {
+    const { rating } = this.state;
+    return (
+      <div className="reviewBox">
+        <form onSubmit={this.handleFormSubmit}>
+          <div className="starRating">
+            {this.emailInput()}
+            <Rating
+              initialRating={rating}
+              onChange={(rate) => this.changeRate(rate)}
+              emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
+              fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}
+            />
+          </div>
+          {this.commentInput()}
+        </form>
+        <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
+          Avaliar
+        </button>
+      </div>
+    );
+  }
+
+  reviewRenderized() {
+    const { rating, result } = this.state;
     return (
       <div>
         {result.map((resultado) => (
           <div>
-            <p><strong>{resultado.userEmailSubmit}</strong></p>
+            <p>
+              <strong>
+                {resultado.userEmailSubmit}
+              </strong>
+              <Rating
+                readonly
+                initialRating={rating}
+                emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
+                fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}
+              />
+            </p>
             <p>
               {resultado.reviewSubmit}
             </p>
@@ -56,59 +116,14 @@ class Reviews extends React.Component {
     );
   }
 
-  stars() {
-    const { rating } = this.state;
-    return (
-      <div>
-        <Rating
-          initialRating={rating}
-          onChange={(rate) => this.changeRate(rate)}
-          emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
-          fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}
-        />
-      </div>
-    );
-  }
-
-  review() {
-    return (
-      <div className="reviewBox">
-        <form onSubmit={this.handleFormSubmit}>
-          <div className="starRating">
-            <input
-              type="text"
-              className="userEmail"
-              name="userEmail"
-              placeholder="E-mail"
-              value={this.state.userEmail}
-              onChange={this.handleChange}
-            />
-            {this.stars()}
-          </div>
-          <textarea
-            type="text"
-            className="review"
-            name="review"
-            placeholder="Mensagem (opcional)"
-            value={this.state.review}
-            maxLength="1000"
-            onChange={this.handleChange}
-          />
-        </form>
-        <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
-          Avaliar
-        </button>
-      </div>
-    );
-  }
 
   render() {
     const { result } = this.state;
     localStorage.setItem('Comentários', JSON.stringify(result));
     return (
       <div>
-        {this.review()}
-        {this.generateReview()}
+        {this.writeReview()}
+        {this.reviewRenderized()}
       </div>
     );
   }
