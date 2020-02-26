@@ -15,24 +15,20 @@ class InfoComprador extends React.Component {
       Complemento: '',
       Número: '',
       Cidade: '',
-    }
+    };
     this.handleInput = this.handleInput.bind(this);
   }
 
   handleInput(event) {
-    const { value, name } = event.target
-    if (!value) {
-      this.setState({ [name]: 'incompleto' })
-    }
-    else { this.setState({ [name]: value }) }
+    const { value, name } = event.target;
+    if (!value) this.setState({ [name]: 'incompleto' });
+    else { this.setState({ [name]: value }) };
   }
 
   criarInput(type, name, placeholder) {
-    const nomear = this.state[name]
-    let nomeDaClasse = 'normal'
-    if (nomear === 'incompleto') {
-      nomeDaClasse = 'vermelho' 
-    }
+    const nomear = this.state[name];
+    let nomeDaClasse = 'normal';
+    if (nomear === 'incompleto') nomeDaClasse = 'vermelho';
     return (
       <input
         type={type}
@@ -45,7 +41,7 @@ class InfoComprador extends React.Component {
   }
   render() {
     const estados = states;
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div>
         <form>
