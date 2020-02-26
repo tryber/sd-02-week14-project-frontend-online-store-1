@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ItensList from './itemList';
 import Categories from './Categories';
-import Cart from '../imgs/img_290616.png';
+// import Cart from '../imgs/img_290616.png';
 import './Categories.css';
 import './SearchBar.css';
 
@@ -38,11 +38,14 @@ class SearchBar extends React.Component {
 
   createInput() {
     return (
-      <input
-        type="text"
-        id="searchBar"
-        onKeyDown={this.handleChange}
-      />
+      <div className="barraPesquisa">
+        <input
+          type="text"
+          id="searchBar"
+          onKeyDown={this.handleChange}
+          className="inputBar"
+        />
+      </div>
     );
   }
 
@@ -57,10 +60,12 @@ class SearchBar extends React.Component {
   criarLinkCarrinho() {
     const { nItens } = this.state;
     return (
-      <div>
+      <div className="iconeCarrinho">
         <Link to="./shopping-cart">
-          <img src={Cart} height="15px" alt="carrinho" />
-          <div>{nItens}</div>
+          {/* <img src={Cart} alt="carrinho" className="iconeCarrinho" /> */}
+          <div className="numeroItens">
+            <p>{nItens}</p>
+          </div>
         </Link>
       </div>
     );
@@ -68,13 +73,19 @@ class SearchBar extends React.Component {
 
   didSearch() {
     const { searchItem, searchCategorie } = this.state;
-    if (!searchItem && !searchCategorie) return <div>Você ainda não realizou uma busca</div>;
+    if (!searchItem && !searchCategorie) {
+      return (
+        <div className="textoBusca">Você ainda não realizou uma busca</div>);
+    }
     return <div />;
   }
 
   didFindResults() {
     const { searchItem, searchCategorie } = this.state;
-    if (!searchItem && !searchCategorie) return <div>Não foram encontrados resultados</div>;
+    if (!searchItem && !searchCategorie) {
+      return (
+        <div className="textoBusca">Não foram encontrados resultados</div>);
+    }
     return (<ItensList
       search={searchItem}
       categorie={searchCategorie}
@@ -86,10 +97,12 @@ class SearchBar extends React.Component {
     console.log(this.state);
     return (
       <div>
-        {this.createInput()}
-        {this.criarLinkCarrinho()}
+        <div className="partedeCima">
+          {this.createInput()}
+          {this.criarLinkCarrinho()}
+        </div>
         {this.didSearch()}
-        <div className="teste">
+        <div className="categoria">
           <Categories onChange={this.handleClick} />
           {this.didFindResults()}
         </div>
