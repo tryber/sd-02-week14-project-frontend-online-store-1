@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ListaCarrinho extends React.Component {
   constructor(props) {
@@ -95,7 +96,7 @@ class ListaCarrinho extends React.Component {
           this.formarCard(id, index)
         ))}
         <p>Preço Total: {this.state.valorAPagar}</p>
-        <button>Pagamento!</button>
+        <Link to='/Payment'><button>Pagamento!</button></Link>
       </div>
     );
   }
