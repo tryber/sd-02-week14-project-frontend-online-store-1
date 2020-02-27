@@ -1,7 +1,6 @@
 .container-lista-carrinho {
   display: flex;
   margin: 5px;
-  justify-content: 'center';
 }
 
 .btn-x {

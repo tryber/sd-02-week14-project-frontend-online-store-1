@@ -13,7 +13,7 @@ class ItemCard extends React.Component {
   }
 
   render() {
-    const {id, title, price, available_quantity: vQuantity, thumbnail,
+    const { id, title, price, available_quantity: vQuantity, thumbnail,
     } = this.props.item;
     const { modificaIconeCarrinho } = this.props;
     return (

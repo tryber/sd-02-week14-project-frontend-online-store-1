@@ -84,26 +84,20 @@ class ListaCarrinho extends React.Component {
           <button
             className="btn-x flex-linhas"
             onClick={() => this.removerUnidade(index)}
-          >
-            -
-          </button>
+          > - </button>
           <div className="descricao-produto flex-linhas quantidade">
             {quantidade}
           </div>
           <button
             className="btn-x flex-linhas"
             onClick={() => this.adicionarUnidade(index)}
-          >
-            +
-          </button>
+          > + </button>
         </div>
         <div className="descricao-produto flex-linhas">
-          Preço unitário:
-          {price}
+          Preço unitário: R$ {price}
         </div>
         <div className="descricao-produto flex-linhas">
-          Total: R$
-          {(price * quantidade).toFixed(2)}
+          Total: R$ {(price * quantidade).toFixed(2)}
         </div>
       </div>
     );
