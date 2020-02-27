@@ -26,12 +26,13 @@
 }
 
 .iconeCarrinho {
-  align-items: end;
+  align-items: flex-end;
   padding: 10px;
   padding-right: 50px;
 }
 
 .numeroItens {
+  align-items: center;
   background-image: url('../imgs/img_290616.png');
   background-size: 50px;
   display: flex;
@@ -40,7 +41,6 @@
   font-weight: 700;
   height: 41px;
   width: 50px;
-  align-items: center;
 }
 
 .quantidade:hover {
