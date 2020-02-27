@@ -45,8 +45,8 @@ class Categories extends Component {
     const { data } = this.state;
     return (
       <div className="category-box">
-        <h3>Categorias</h3>
         <div className="category-options-box">
+          <p><strong>Categorias</strong></p>
           {data.map((dat) => this.renderCategory(dat.id, dat.name))}
         </div>
       </div>
@@ -57,5 +57,6 @@ class Categories extends Component {
 Categories.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
+
 
 export default Categories;

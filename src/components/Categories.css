@@ -8,7 +8,7 @@
 
 .category-options:hover {
   background-color: #c02942;
-  border-radius: 10px;
+  border-radius: 11px;
 }
 
 .category-options > input:checked + div {

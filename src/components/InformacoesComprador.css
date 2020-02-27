@@ -1,0 +1,40 @@
+.vermelho {
+  border: 3px red solid;
+}
+
+input {
+  margin: 5px;
+  padding: 2px;
+  width: 23%;
+}
+
+select {
+  background-color: white;
+  width: 10%;
+}
+
+.container-total {
+  border: black 3px solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.container-infos {
+  display: flex;
+  width: 95%;
+}
+
+.boleto {
+  width: 25%;
+}
+
+.cartao {
+  width: 40%;
+}
+
+.btn-comprar {
+  border-radius: 10px;
+  height: 35px;
+  margin: 5px;
+  width: 150px;
+}

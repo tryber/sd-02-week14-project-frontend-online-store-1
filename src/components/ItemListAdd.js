@@ -10,7 +10,7 @@ class ItemListAdd extends React.Component {
     this.clicar = this.clicar.bind(this);
   }
 
-  clicar() {
+  clicar(func) {
     const { id } = this.props.produto;
     if (!localStorage.getItem('products')) {
       localStorage.setItem('products', JSON.stringify({ [id]: { ...this.props.produto, quantidade: 1 } }));
@@ -23,11 +23,13 @@ class ItemListAdd extends React.Component {
         localStorage.setItem('products', JSON.stringify({ ...objProdutos, [id]: { ...this.props.produto, quantidade: 1 } }));
       }
     }
+    func();
   }
 
   render() {
+    const { modificaIconeCarrinho } = this.props;
     return (
-      <button onClick={this.clicar}>Adicionar ao carrinho</button>
+      <button onClick={() => this.clicar(modificaIconeCarrinho)}>Adicionar ao carrinho</button>
     );
   }
 }
@@ -36,6 +38,7 @@ ItemListAdd.propTypes = {
   produto: PropTypes.shape({
     id: PropTypes.string,
   }).isRequired,
+  modificaIconeCarrinho: PropTypes.func.isRequired,
 };
 
 export default ItemListAdd;

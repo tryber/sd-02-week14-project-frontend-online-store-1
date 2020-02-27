@@ -1,4 +1,46 @@
-.teste {
+.categoria {
   display: flex;
   flex-flow: row wrap;
 }
+
+.barraPesquisa {
+  display: flex;
+}
+
+.inputBar {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 25px;
+  margin-top: 20px;
+  width: 70vw;
+}
+
+.textoBusca {
+  font-size: 25px;
+  text-align: center;
+}
+
+.partedeCima {
+  display: flex;
+  justify-content: center;
+}
+
+.iconeCarrinho {
+  align-items: center;
+  display: flex;
+}
+
+.numeroItens {
+  background-image: url('../imgs/img_290616.png');
+  background-size: 50px;
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+  height: 42px;
+  width: 50px;
+}
+
+.quantidade:hover {
+  background-color: rgb(192, 41, 65);
+}
+
