@@ -1,6 +1,6 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import states from './estados';
-import { Redirect } from 'react-router'
 import boleto from '../imgs/codigo-barras.jpeg';
 import cartao from '../imgs/cartao-credito.jpeg';
 import './InformacoesComprador.css';
@@ -125,7 +125,7 @@ class InfoComprador extends React.Component {
     this.setState(novoEstado);
     if (!temErro) {
       alert('Compra efetuada');
-      localStorage.removeItem('products')
+      localStorage.removeItem('products');
       this.setState({ redirect: true });
     }
     return '';
@@ -135,9 +135,10 @@ class InfoComprador extends React.Component {
     const { redirect } = this.state;
     if (redirect) {
       return (
-        <Redirect to='/' />
-      )
+        <Redirect to="/" />
+      );
     }
+    return '';
   }
 
   render() {
