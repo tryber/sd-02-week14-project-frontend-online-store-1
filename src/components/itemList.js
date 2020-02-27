@@ -1,11 +1,11 @@
-import { React, Fragment } from 'react';
+import { React, Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 import './itemList.css';
 
 const pesquisarItem = require('../requisicaoItemAPI');
 
-class ItensList extends React.Component {
+class ItensList extends Component {
   constructor(props) {
     super(props);
     this.state = {
