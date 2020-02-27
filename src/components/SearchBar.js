@@ -64,7 +64,7 @@ class SearchBar extends React.Component {
         <Link to="./shopping-cart">
           {/* <img src={Cart} alt="carrinho" className="iconeCarrinho" /> */}
           <div className="numeroItens">
-            <p>{nItens}</p>
+            <p className="quantidade">{nItens}</p>
           </div>
         </Link>
       </div>
@@ -86,12 +86,15 @@ class SearchBar extends React.Component {
       return (
         <div className="textoBusca">Não foram encontrados resultados</div>);
     }
-    return (<ItensList
-      search={searchItem}
-      categorie={searchCategorie}
-      modificaIconeCarrinho={this.adicionaItemImgCarrinho}
-    />);
+    return (
+      <ItensList
+        search={searchItem}
+        categorie={searchCategorie}
+        modificaIconeCarrinho={this.adicionaItemImgCarrinho}
+      />
+    );
   }
+
 
   render() {
     console.log(this.state);
@@ -103,7 +106,10 @@ class SearchBar extends React.Component {
         </div>
         {this.didSearch()}
         <div className="categoria">
-          <Categories onChange={this.handleClick} />
+          <Categories
+            onChange={this.handleClick}
+            style={{ display: 'flex' }}
+          />
           {this.didFindResults()}
         </div>
       </div>
