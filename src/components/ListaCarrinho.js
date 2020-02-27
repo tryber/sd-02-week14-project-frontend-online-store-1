@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ListaCarrinho.css';
 
 class ListaCarrinho extends React.Component {
   constructor(props) {
@@ -71,32 +72,45 @@ class ListaCarrinho extends React.Component {
   }
 
   formarCard(id, index) {
-    const { title, thumbnail, quantidade, price } = this.state.valores[index];
+    const {
+      title, thumbnail, quantidade, price,
+    } = this.state.valores[index];
     return (
-      <div key={id} style={{ textAlign: 'center' }}>
-        <button onClick={() => this.removerProduto(index)}>Excluir</button>
-        <p>{title}</p>
+      <div key={id} className="container-lista-carrinho">
+        <button className="btn-x flex-linhas" onClick={() => this.removerProduto(index)}>X</button>
+        <div className="nome-produto flex-linhas">{title}</div>
         <img src={thumbnail} alt={title} />
-        <button onClick={() => this.removerUnidade(index)}>-</button>
-        <p>Quantidade: {quantidade}</p>
-        <button onClick={() => this.adicionarUnidade(index)}>+</button>
-        <p>Preço unitário: {price}</p>
-        <p>Preço acumulado: {price * quantidade}</p>
-        <p>---------------------</p>
+        <div className="flex-quantidade">
+          <button className="btn-x flex-linhas" onClick={() => this.removerUnidade(index)}>-</button>
+          <div className="descricao-produto flex-linhas quantidade">
+            {quantidade}
+          </div>
+          <button className="btn-x flex-linhas" onClick={() => this.adicionarUnidade(index)}>+</button>
+        </div>
+        <div className="descricao-produto flex-linhas">
+          Preço unitário:
+          {price}
+        </div>
+        <div className="descricao-produto flex-linhas">
+          Total: R$
+          {(price * quantidade).toFixed(2)}
+        </div>
       </div>
     );
   }
 
   render() {
-    console.log(this.state);
     const { ids } = this.state;
     return (
-      <div>
+      <div className="big-container-carrinho">
         {ids.map((id, index) => (
           this.formarCard(id, index)
         ))}
-        <p>Preço Total: {this.state.valorAPagar}</p>
-        <Link to="/Payment"><button>Pagamento!</button></Link>
+        <h2>
+          Valor Total da Compra: R$
+          {this.state.valorAPagar.toFixed(2)}
+        </h2>
+        <Link to="/Payment"><button className="pagamento">Finalizar Compra</button></Link>
       </div>
     );
   }
