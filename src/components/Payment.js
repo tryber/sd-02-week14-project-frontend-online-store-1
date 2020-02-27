@@ -5,7 +5,6 @@ import InformacoesComprador from './InformacoesComprador';
 import BackArrow from '../imgs/back-arrow.png';
 
 class Payment extends React.Component {
-
   render() {
     return (
       <div>
