@@ -58,7 +58,7 @@ class InfoComprador extends React.Component {
         {this.criarInput('number', 'Número', 'Número')}
         {this.criarInput('text', 'Cidade', 'Cidade')}
       </div>
-    )
+    );
   }
 
   gerarSelect() {
@@ -75,11 +75,11 @@ class InfoComprador extends React.Component {
           </option>
         ))}
       </select>
-    )
+    );
   }
 
   handleClick() {
-    this.setState({ selectPayment: true })
+    this.setState({ selectPayment: true });
   }
 
   metodosPagamento() {
@@ -92,7 +92,8 @@ class InfoComprador extends React.Component {
         <p>Cartão de Crédito</p>
         <input type="radio" name="pagamento" value="Visa" onClick={this.handleClick} /> Visa
         <img src={cartao} alt="Visa" height="25px" />
-        <input type="radio" name="pagamento" value="MasterCard" onClick={this.handleClick} />MasterCard
+        <input type="radio" name="pagamento" value="MasterCard" onClick={this.handleClick}
+        />MasterCard
         <img src={cartao} alt="MasterCard" height="25px" />
         <input type="radio" name="pagamento" value="Maestro" onClick={this.handleClick} />Maestro
         <img src={cartao} alt="Maestro" height="25px" />
@@ -114,15 +115,14 @@ class InfoComprador extends React.Component {
       if (this.state[estado] === '' || this.state[estado] === 'incompleto') {
         novoEstado[estado] = 'incompleto';
         temErro = true;
-      }
-      else novoEstado[estado] = this.state[estado];
-    })
-    console.log(temErro)
+      } else novoEstado[estado] = this.state[estado];
+    });
     this.setState(novoEstado);
     if (!temErro) {
       alert('Compra efetuada');
       window.location.reload(true);
     }
+    return '';
   }
 
   render() {
