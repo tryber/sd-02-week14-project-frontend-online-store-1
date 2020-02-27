@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 import './itemList.css';
@@ -59,10 +59,10 @@ class ItensList extends React.Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         {this.notfound()}
         {this.gerarLista()}
-      </>
+      </Fragment>
     );
   }
 }
