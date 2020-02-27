@@ -1,5 +1,8 @@
 import React from 'react';
 import Rating from 'react-rating';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import goldenStar from '../imgs/goldenstar.png';
 import grayStar from '../imgs/graystar.png';
 import './Reviews.css';
@@ -7,7 +10,7 @@ import './Reviews.css';
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    const loadedResults = JSON.parse(localStorage.getItem('Comentários'));
+    const loadedResults = JSON.parse(localStorage.getItem(props.location.pathname));
     this.state = {
       rating: 5,
       userEmail: '',
@@ -38,6 +41,7 @@ class Reviews extends React.Component {
       review,
       rating,
     } = this.state;
+    const { location } = this.props;
 
     const newResult = [
       ...result,
@@ -48,7 +52,7 @@ class Reviews extends React.Component {
       },
     ];
 
-    localStorage.setItem('Comentários', JSON.stringify(newResult));
+    localStorage.setItem(location.pathname, JSON.stringify(newResult));
 
     this.setState({ result: newResult });
   }
@@ -118,7 +122,7 @@ class Reviews extends React.Component {
               </strong>
               <Rating
                 readonly
-                placeholderRating={resultado.ratingSubmit}
+                initialRating={resultado.ratingSubmit}
                 emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
                 fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}
               />
@@ -143,4 +147,14 @@ class Reviews extends React.Component {
   }
 }
 
-export default Reviews;
+Reviews.defaultProps = {
+  location: {},
+};
+
+Reviews.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
+};
+
+export default withRouter(Reviews);

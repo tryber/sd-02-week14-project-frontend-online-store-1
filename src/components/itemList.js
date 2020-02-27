@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 import './itemList.css';
@@ -46,8 +46,7 @@ class ItensList extends React.Component {
       <div className="container">
         {itens.map((item) => (
           <ItemCard item={item} key={item.id} modificaIconeCarrinho={modificaIconeCarrinho} />
-        ))
-        }
+        ))}
       </div>
     );
   }
@@ -60,10 +59,10 @@ class ItensList extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         {this.notfound()}
         {this.gerarLista()}
-      </Fragment>
+      </>
     );
   }
 }
