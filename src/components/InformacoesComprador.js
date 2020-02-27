@@ -155,7 +155,6 @@ class InfoComprador extends React.Component {
       </div>
     );
   }
-
 }
 
 export default InfoComprador;
