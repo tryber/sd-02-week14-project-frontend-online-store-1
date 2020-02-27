@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './Product.css';
 import BackArrow from '../imgs/back-arrow.png';
 import Cart from '../imgs/img_290616.png';
+import Reviews from './Reviews'
 
 class Product extends React.Component {
   constructor(props) {
@@ -101,6 +102,7 @@ class Product extends React.Component {
           <button onClick={this.incrementCount}>+</button>
           <button onClick={this.addCart}>Adicionar ao carrinho</button>
         </div>
+        <Reviews />
       </div>
     );
   }
