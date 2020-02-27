@@ -58,6 +58,7 @@ class InfoComprador extends React.Component {
         {this.criarInput('number', 'Complemento', 'Complemento')}
         {this.criarInput('number', 'Número', 'Número')}
         {this.criarInput('text', 'Cidade', 'Cidade')}
+        {this.gerarSelect()}
       </div>
     );
   }
@@ -85,23 +86,33 @@ class InfoComprador extends React.Component {
 
   metodosPagamento() {
     return (
-      <div>
-        <p>Método de pagamento</p>
-        <p>Boleto</p>
-        <input type="radio" name="pagamento" value="Boleto" onClick={this.handleClick} />
-        <img src={boleto} alt="Boleto" height="25px" />
-        <p>Cartão de Crédito</p>
-        <input type="radio" name="pagamento" value="Visa" onClick={this.handleClick} /> Visa
-        <img src={cartao} alt="Visa" height="25px" />
-        <input
-          type="radio"
-          name="pagamento"
-          value="MasterCard"
-          onClick={this.handleClick}
-        />MasterCard
-        <img src={cartao} alt="MasterCard" height="25px" />
-        <input type="radio" name="pagamento" value="Maestro" onClick={this.handleClick} />Maestro
-        <img src={cartao} alt="Maestro" height="25px" />
+      <div className="container-infos">
+        <div className="boleto">
+          <p>Boleto</p>
+          <div className="container-infos">
+            <input type="radio" name="pagamento" value="Boleto" onClick={this.handleClick} />
+            <img src={boleto} alt="Boleto" height="25px" />
+          </div>
+        </div>
+        <div className="cartao">
+          <p>Cartão de Crédito</p>
+          <div className="container-infos">
+            <input type="radio" name="pagamento" value="Visa" onClick={this.handleClick} />
+            Visa
+            <img src={cartao} alt="Visa" height="25px" />
+            <input
+              type="radio"
+              name="pagamento"
+              value="MasterCard"
+              onClick={this.handleClick}
+            />
+            MasterCard
+            <img src={cartao} alt="MasterCard" height="25px" />
+            <input type="radio" name="pagamento" value="Maestro" onClick={this.handleClick} />
+            Maestro
+            <img src={cartao} alt="Maestro" height="25px" />
+          </div>
+        </div>
       </div>
     );
   }
@@ -146,10 +157,17 @@ class InfoComprador extends React.Component {
     return (
       <div>
         <form>
-          {this.gerarOsInputs()}
-          {this.gerarSelect()}
-          {this.metodosPagamento()}
-          <button onClick={this.submitCompra}>Pagar</button>
+          <div className="container-total">
+            <h1>Informações do comprador</h1>
+            <div className="container-infos">
+              {this.gerarOsInputs()}
+            </div>
+          </div>
+          <div className="container-total">
+            <h1>Métodos de Pagamento</h1>
+            {this.metodosPagamento()}
+          </div>
+          <button class="btn-comprar" onClick={this.submitCompra}>Comprar!</button>
           {this.redirecionar()}
         </form>
       </div>

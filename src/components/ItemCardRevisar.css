@@ -1,0 +1,16 @@
+.container-item-revisar {
+  border: black 1px solid;
+  display: flex;
+  margin: 2px;
+}
+
+.imagem-revisar {
+  border-right: black 1px solid;
+}
+
+.container-infos-gerais {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}

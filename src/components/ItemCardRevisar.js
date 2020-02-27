@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './ItemCardRevisar.css';
 
 class ItemCardRevisar extends React.Component {
   render() {
-    const { id, title, price, quantidade, thumbnail } = this.props.item;
+    const {
+      id, title, price, quantidade, thumbnail,
+    } = this.props.item;
     return (
-      <div key={id}>
-        <img src={thumbnail} alt="Produto" />
-        <div>{title}</div>
-        <div>Total: R${quantidade * price}</div>
+      <div key={id} className="container-item-revisar">
+        <img src={thumbnail} alt="Produto" className="imagem-revisar" />
+        <div className="container-infos-gerais">
+          <div>{title}</div>
+          <div>
+            R$
+            {quantidade * price}
+          </div>
+        </div>
       </div>
     );
   }
-
 }
 
 ItemCardRevisar.propTypes = {
