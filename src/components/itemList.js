@@ -52,7 +52,8 @@ class ItensList extends Component {
 
   notfound() {
     const { itens } = this.state;
-    if (!itens.length) return <div>Não foram encontrados resultados</div>;
+    const { search, categorie } = this.props;
+    if (!itens.length && search) return <div>Não foram encontrados resultados</div>;
     return <div />;
   }
 

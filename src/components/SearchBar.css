@@ -26,8 +26,9 @@
 }
 
 .iconeCarrinho {
-  align-items: center;
-  display: flex;
+  align-items: end;
+  padding: 10px;
+  padding-right: 50px;
 }
 
 .numeroItens {
@@ -44,3 +45,11 @@
   background-color: rgb(192, 41, 65);
 }
 
+.flex-pai {
+  display: flex;
+}
+
+.flex-directed-colum {
+  display: flex;
+  flex-direction: column;
+}

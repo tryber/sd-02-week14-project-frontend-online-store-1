@@ -82,10 +82,6 @@ class SearchBar extends React.Component {
 
   didFindResults() {
     const { searchItem, searchCategorie } = this.state;
-    if (!searchItem && !searchCategorie) {
-      return (
-        <div className="textoBusca">Não foram encontrados resultados</div>);
-    }
     return (
       <ItensList
         search={searchItem}
@@ -99,19 +95,21 @@ class SearchBar extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div>
-        <div className="partedeCima">
-          {this.createInput()}
-          {this.criarLinkCarrinho()}
-        </div>
-        {this.didSearch()}
+      <div className="flex-pai">
         <div className="categoria">
           <Categories
             onChange={this.handleClick}
             style={{ display: 'flex' }}
           />
-          {this.didFindResults()}
         </div>
+        <div>
+          <div className="partedeCima flex-directed-colum">
+            {this.createInput()}
+            {this.didSearch()}
+            {this.didFindResults()}
+          </div>
+        </div>
+        {this.criarLinkCarrinho()}
       </div>
     );
   }
