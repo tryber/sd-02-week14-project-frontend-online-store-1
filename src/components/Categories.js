@@ -58,4 +58,5 @@ Categories.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
+
 export default Categories;
