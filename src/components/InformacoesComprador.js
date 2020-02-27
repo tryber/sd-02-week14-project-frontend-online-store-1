@@ -167,7 +167,7 @@ class InfoComprador extends React.Component {
             <h1>Métodos de Pagamento</h1>
             {this.metodosPagamento()}
           </div>
-          <button class="btn-comprar" onClick={this.submitCompra}>Comprar!</button>
+          <button className="btn-comprar" onClick={this.submitCompra}>Comprar!</button>
           {this.redirecionar()}
         </form>
       </div>
