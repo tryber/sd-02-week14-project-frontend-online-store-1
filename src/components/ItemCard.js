@@ -13,8 +13,7 @@ class ItemCard extends React.Component {
   }
 
   render() {
-    const {
-      id, title, price, available_quantity: vQuantity, thumbnail,
+    const {id, title, price, available_quantity: vQuantity, thumbnail,
     } = this.props.item;
     const { modificaIconeCarrinho } = this.props;
     return (
@@ -26,14 +25,10 @@ class ItemCard extends React.Component {
           }}
         >
           <div className="centralizado">
-            <div>
-              Nome do Produto:
-              {title}
-            </div>
+            <div> Nome do Produto: {title} </div>
             <img src={thumbnail} alt="Produto" />
             <p>
-              Preço:  R$
-              {price}
+              Preço: R${price}
             </p>
             <p>
               Quantidade:

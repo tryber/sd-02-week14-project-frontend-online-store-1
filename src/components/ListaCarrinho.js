@@ -81,11 +81,21 @@ class ListaCarrinho extends React.Component {
         <div className="nome-produto flex-linhas">{title}</div>
         <img src={thumbnail} alt={title} />
         <div className="flex-quantidade">
-          <button className="btn-x flex-linhas" onClick={() => this.removerUnidade(index)}>-</button>
+          <button
+            className="btn-x flex-linhas"
+            onClick={() => this.removerUnidade(index)}
+          >
+            -
+          </button>
           <div className="descricao-produto flex-linhas quantidade">
             {quantidade}
           </div>
-          <button className="btn-x flex-linhas" onClick={() => this.adicionarUnidade(index)}>+</button>
+          <button
+            className="btn-x flex-linhas"
+            onClick={() => this.adicionarUnidade(index)}
+          >
+            +
+          </button>
         </div>
         <div className="descricao-produto flex-linhas">
           Preço unitário:
