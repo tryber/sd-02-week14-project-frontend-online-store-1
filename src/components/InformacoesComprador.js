@@ -1,5 +1,6 @@
 import React from 'react';
 import states from './estados';
+import { Redirect } from 'react-router'
 import boleto from '../imgs/codigo-barras.jpeg';
 import cartao from '../imgs/cartao-credito.jpeg';
 import './InformacoesComprador.css';
@@ -92,7 +93,11 @@ class InfoComprador extends React.Component {
         <p>Cartão de Crédito</p>
         <input type="radio" name="pagamento" value="Visa" onClick={this.handleClick} /> Visa
         <img src={cartao} alt="Visa" height="25px" />
-        <input type="radio" name="pagamento" value="MasterCard" onClick={this.handleClick}
+        <input
+          type="radio"
+          name="pagamento"
+          value="MasterCard"
+          onClick={this.handleClick}
         />MasterCard
         <img src={cartao} alt="MasterCard" height="25px" />
         <input type="radio" name="pagamento" value="Maestro" onClick={this.handleClick} />Maestro
@@ -108,10 +113,10 @@ class InfoComprador extends React.Component {
       alert('Escolha uma forma de pagamento');
       return '';
     }
-    const estadoAtual = Object.keys(this.state)
+    const estadoAtual = Object.keys(this.state);
     const novoEstado = {};
     let temErro = '';
-    estadoAtual.forEach(estado => {
+    estadoAtual.forEach((estado) => {
       if (this.state[estado] === '' || this.state[estado] === 'incompleto') {
         novoEstado[estado] = 'incompleto';
         temErro = true;
@@ -120,9 +125,19 @@ class InfoComprador extends React.Component {
     this.setState(novoEstado);
     if (!temErro) {
       alert('Compra efetuada');
-      window.location.reload(true);
+      localStorage.removeItem('products')
+      this.setState({ redirect: true });
     }
     return '';
+  }
+
+  redirecionar() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return (
+        <Redirect to='/' />
+      )
+    }
   }
 
   render() {
@@ -134,6 +149,7 @@ class InfoComprador extends React.Component {
           {this.gerarSelect()}
           {this.metodosPagamento()}
           <button onClick={this.submitCompra}>Pagar</button>
+          {this.redirecionar()}
         </form>
       </div>
     );
