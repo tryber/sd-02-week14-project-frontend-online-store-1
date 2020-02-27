@@ -14,7 +14,7 @@ class ItemCardRevisar extends React.Component {
           <div>{title}</div>
           <div>
             R$
-            {quantidade * price}
+            {(quantidade * price).toFixed(2)}
           </div>
         </div>
       </div>

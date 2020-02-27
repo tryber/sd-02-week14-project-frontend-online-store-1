@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ItensList from './itemList';
 import Categories from './Categories';
-// import Cart from '../imgs/img_290616.png';
 import './Categories.css';
 import './SearchBar.css';
 
@@ -62,9 +61,8 @@ class SearchBar extends React.Component {
     return (
       <div className="iconeCarrinho">
         <Link to="./shopping-cart">
-          {/* <img src={Cart} alt="carrinho" className="iconeCarrinho" /> */}
-          <div className="numeroItens">
-            <p className="quantidade">{nItens}</p>
+          <div className="numeroItens ">
+            <div className="quant">{nItens}</div>
           </div>
         </Link>
       </div>
