@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes, { element } from 'prop-types';
+import PropTypes from 'prop-types';
 import './Product.css';
 import BackArrow from '../imgs/back-arrow.png';
 import Cart from '../imgs/img_290616.png';
@@ -74,7 +74,7 @@ class Product extends React.Component {
             <p>Especificações Técnicas</p>
             {attributes.map((atributos) => (
               <li key={atributos.name}>{atributos.name}: {atributos.value_name}</li>
-            ))}
+          ))}
           </div>
         </div>
       </div>
