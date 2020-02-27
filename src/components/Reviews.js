@@ -7,17 +7,14 @@ import './Reviews.css';
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    const teste = JSON.parse(localStorage.getItem('Comentários'));
+    const loadedResults = JSON.parse(localStorage.getItem('Comentários'));
     this.state = {
-      rating: 1,
+      rating: 5,
       userEmail: '',
       review: '',
-      result: teste || [{
-        userEmailSubmit: '',
-        reviewSubmit: '',
-      }],
+      result: loadedResults || [],
     };
-    this.reviewRenderized = this.reviewRenderized.bind(this);
+    this.renderReview = this.renderReview.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.changeRate = this.changeRate.bind(this);
@@ -35,32 +32,51 @@ class Reviews extends React.Component {
   }
 
   handleFormSubmit() {
-    this.setState((state) => ({
-      result: [...state.result, { userEmailSubmit: state.userEmail, reviewSubmit: state.review }],
-    }));
+    const {
+      result,
+      userEmail,
+      review,
+      rating,
+    } = this.state;
+
+    const newResult = [
+      ...result,
+      {
+        userEmailSubmit: userEmail,
+        ratingSubmit: rating,
+        reviewSubmit: review,
+      },
+    ];
+
+    localStorage.setItem('Comentários', JSON.stringify(newResult));
+
+    this.setState({ result: newResult });
   }
 
   emailInput() {
+    const { userEmail } = this.state;
     return (
       <input
         type="text"
         className="userEmail"
         name="userEmail"
         placeholder="E-mail"
-        value={this.state.userEmail}
+        value={userEmail}
         onChange={this.handleChange}
+        required
       />
     );
   }
 
   commentInput() {
+    const { review } = this.state;
     return (
       <textarea
         type="text"
         className="review"
         name="review"
         placeholder="Mensagem (opcional)"
-        value={this.state.review}
+        value={review}
         maxLength="1000"
         onChange={this.handleChange}
       />
@@ -90,8 +106,8 @@ class Reviews extends React.Component {
     );
   }
 
-  reviewRenderized() {
-    const { rating, result } = this.state;
+  renderReview() {
+    const { result } = this.state;
     return (
       <div>
         {result.map((resultado) => (
@@ -102,7 +118,7 @@ class Reviews extends React.Component {
               </strong>
               <Rating
                 readonly
-                initialRating={rating}
+                placeholderRating={resultado.ratingSubmit}
                 emptySymbol={<img src={grayStar} className="starIcon" alt="gray star" />}
                 fullSymbol={<img src={goldenStar} className="starIcon" alt="golden star" />}
               />
@@ -118,12 +134,10 @@ class Reviews extends React.Component {
 
 
   render() {
-    const { result } = this.state;
-    localStorage.setItem('Comentários', JSON.stringify(result));
     return (
       <div>
         {this.writeReview()}
-        {this.reviewRenderized()}
+        {this.renderReview()}
       </div>
     );
   }
