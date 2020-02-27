@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemCardRevisar from './ItemCardRevisar';
+import './RevisaoProdutos.css';
 
 class RevisaoProduto extends React.Component {
   constructor(props) {
@@ -18,19 +19,20 @@ class RevisaoProduto extends React.Component {
   render() {
     const { valorAPagar, valores } = this.state;
     return (
-      <div>
-        <p>RevisaoProduto</p>
+      <div className="container-revisao">
+        <h1>Revise seus produtos</h1>
         {valores.map((item) => (
           <div key={item.id}>
             <ItemCardRevisar item={item} />
           </div>
         ))}
-        <p>Total: R$ {valorAPagar}</p>
-        <p>------------------------</p>
+        <h3>
+          Total: R$
+          {valorAPagar}
+        </h3>
       </div>
     );
   }
-
 }
 
 export default RevisaoProduto;
