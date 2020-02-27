@@ -1,1 +1,5 @@
 .vermelho { border: 3px red solid; }
+
+* {
+  border: brown 1px solid;
+}
