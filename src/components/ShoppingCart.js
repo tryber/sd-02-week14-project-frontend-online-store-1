@@ -7,28 +7,31 @@ import EmptyBox from '../imgs/empty.png';
 import './ShoppingCart.css';
 
 class ShoppingCart extends React.Component {
-
   listaCheia() {
     console.log(this);
-    if (localStorage.getItem('products')) {
+    console.log(localStorage.getItem('products').length);
+    if (localStorage.getItem('products').length > 2) {
       return (
         <div>
           <ListaCarrinho />
-        </div>);
+        </div>
+      );
     }
     return '';
   }
 
   listaVazia() {
     console.log(this);
-    if (!localStorage.getItem('products')) {
+    const jaApagou = localStorage.getItem('products').length;
+    if (!localStorage.getItem('products') || jaApagou <= 2) {
       return (
         <div>
           <div className="minhaCaixa">
             <img src={EmptyBox} alt="Imagem de caixa vazia" className="caixa" />
             <p className="textoCaixa">Seu Carrinho Está Vazio</p>
           </div>
-        </div>);
+        </div>
+      );
     }
     return '';
   }

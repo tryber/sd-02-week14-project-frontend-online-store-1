@@ -1,0 +1,48 @@
+.container-lista-carrinho {
+  display: flex;
+  margin: 5px;
+}
+
+.btn-x {
+  background-color: white;
+  border: none;
+  font-size: 35px;
+}
+
+.nome-produto {
+  width: 40%;
+}
+
+.descricao-produto {
+  width: 17%;
+}
+
+.flex-linhas {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quantidade {
+  border: black 1px solid;
+  border-radius: 95%;
+  width: 80px;
+}
+
+.flex-quantidade {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 15%;
+}
+
+.big-container-carrinho {
+  border: black solid 1px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.pagamento {
+  height: 35px;
+}

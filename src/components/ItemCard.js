@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ItemListAdd from './ItemListAdd';
-import '../components/ItemCard.css';
+import './ItemCard.css';
 
 class ItemCard extends React.Component {
   constructor(props) {
@@ -11,8 +11,10 @@ class ItemCard extends React.Component {
       itens: [],
     };
   }
+
   render() {
-    const { id, title, price, available_quantity: vQuantity, thumbnail } = this.props.item;
+    const { id, title, price, available_quantity: vQuantity, thumbnail,
+    } = this.props.item;
     const { modificaIconeCarrinho } = this.props;
     return (
       <div>
@@ -23,10 +25,17 @@ class ItemCard extends React.Component {
           }}
         >
           <div className="centralizado">
-            <div>Nome do Produto: {title}</div>
+            <div> Nome do Produto: {title} </div>
             <img src={thumbnail} alt="Produto" />
-            <p>Preço:  R$ {price}</p>
-            <p>Quantidade: {vQuantity} un.</p>
+            <p>
+              Preço: R${price}
+            </p>
+            <p>
+              Quantidade:
+              {vQuantity}
+              {' '}
+              un.
+            </p>
           </div>
         </Link>
         <ItemListAdd produto={this.props.item} modificaIconeCarrinho={modificaIconeCarrinho} />
