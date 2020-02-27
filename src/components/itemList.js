@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 import './itemList.css';
 
-
 const pesquisarItem = require('../requisicaoItemAPI');
 
 class ItensList extends React.Component {

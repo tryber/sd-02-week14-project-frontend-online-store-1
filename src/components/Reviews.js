@@ -2,7 +2,6 @@ import React from 'react';
 import Rating from 'react-rating';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import goldenStar from '../imgs/goldenstar.png';
 import grayStar from '../imgs/graystar.png';
 import './Reviews.css';
