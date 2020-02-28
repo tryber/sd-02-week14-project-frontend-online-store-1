@@ -142,7 +142,7 @@ class InfoComprador extends React.Component {
       localStorage.removeItem('products');
       this.setState({ redirect: true });
     }
-    return '';
+    return alert('Preencha todos os campos!');
   }
 
   redirecionar() {
