@@ -58,15 +58,18 @@ class InfoComprador extends React.Component {
         {this.criarInput('number', 'Complemento', 'Complemento')}
         {this.criarInput('number', 'Número', 'Número')}
         {this.criarInput('text', 'Cidade', 'Cidade')}
-        {this.gerarSelect()}
+        {this.gerarSelect('Estado')}
       </div>
     );
   }
 
-  gerarSelect() {
+  gerarSelect(name) {
     const estados = states;
+    const nomear = this.state[name];
+    let nomeDaClasse = 'normal';
+    if (nomear === 'incompleto') nomeDaClasse = 'vermelho';
     return (
-      <select name="Estado" onChange={this.handleInput}>
+      <select className={nomeDaClasse} name="Estado" onChange={this.handleInput}>
         <option>Estado</option>
         {estados.map((estado) => (
           <option
@@ -139,7 +142,7 @@ class InfoComprador extends React.Component {
       localStorage.removeItem('products');
       this.setState({ redirect: true });
     }
-    return '';
+    return alert('Preencha todos os campos!');
   }
 
   redirecionar() {
