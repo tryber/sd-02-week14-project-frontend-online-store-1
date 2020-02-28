@@ -28,7 +28,7 @@ class RevisaoProduto extends React.Component {
         ))}
         <h3>
           Total: R$
-          {valorAPagar}
+          {valorAPagar.toFixed(2)}
         </h3>
       </div>
     );
