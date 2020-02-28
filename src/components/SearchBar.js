@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ItensList from './itemList';
 import Categories from './Categories';
-// import Cart from '../imgs/img_290616.png';
 import './Categories.css';
 import './SearchBar.css';
 
@@ -62,9 +61,8 @@ class SearchBar extends React.Component {
     return (
       <div className="iconeCarrinho">
         <Link to="./shopping-cart">
-          {/* <img src={Cart} alt="carrinho" className="iconeCarrinho" /> */}
-          <div className="numeroItens">
-            <p className="quantidade">{nItens}</p>
+          <div className="numeroItens ">
+            <div className="quant">{nItens}</div>
           </div>
         </Link>
       </div>
@@ -82,10 +80,6 @@ class SearchBar extends React.Component {
 
   didFindResults() {
     const { searchItem, searchCategorie } = this.state;
-    if (!searchItem && !searchCategorie) {
-      return (
-        <div className="textoBusca">Não foram encontrados resultados</div>);
-    }
     return (
       <ItensList
         search={searchItem}
@@ -99,19 +93,21 @@ class SearchBar extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div>
-        <div className="partedeCima">
-          {this.createInput()}
-          {this.criarLinkCarrinho()}
-        </div>
-        {this.didSearch()}
+      <div className="flex-pai">
         <div className="categoria">
           <Categories
             onChange={this.handleClick}
             style={{ display: 'flex' }}
           />
-          {this.didFindResults()}
         </div>
+        <div>
+          <div className="partedeCima flex-directed-colum">
+            {this.createInput()}
+            {this.didSearch()}
+            {this.didFindResults()}
+          </div>
+        </div>
+        {this.criarLinkCarrinho()}
       </div>
     );
   }

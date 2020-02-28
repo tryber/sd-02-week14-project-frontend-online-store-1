@@ -17,15 +17,15 @@ class ItemCard extends React.Component {
     } = this.props.item;
     const { modificaIconeCarrinho } = this.props;
     return (
-      <div>
+      <div className="container-cards">
         <Link
           to={{
             pathname: `product/${id}`,
             state: { item: this.props.item },
           }}
         >
-          <div className="centralizado">
-            <div> Nome do Produto: {title} </div>
+          <div>
+            <div className="titulo-card"> Nome do Produto: {title} </div>
             <img src={thumbnail} alt="Produto" />
             <p>
               Preço: R${price}

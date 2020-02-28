@@ -26,17 +26,20 @@
 }
 
 .iconeCarrinho {
-  align-items: center;
-  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  padding-right: 50px;
 }
 
 .numeroItens {
+  align-items: center;
   background-image: url('../imgs/img_290616.png');
   background-size: 50px;
   display: flex;
-  font-size: 24px;
+  flex-direction: column;
+  font-size: 20px;
   font-weight: 700;
-  height: 42px;
+  height: 41px;
   width: 50px;
 }
 
@@ -44,3 +47,11 @@
   background-color: rgb(192, 41, 65);
 }
 
+.flex-pai {
+  display: flex;
+}
+
+.flex-directed-colum {
+  display: flex;
+  flex-direction: column;
+}
