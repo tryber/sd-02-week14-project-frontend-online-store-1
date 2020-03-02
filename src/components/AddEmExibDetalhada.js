@@ -12,6 +12,7 @@ class AddEmExibDetalhada extends React.Component {
   }
 
   adicionando(qt) {
+    const { enviaAoCarro } = this.props;
     return (
       <div className="adding">
         <button type="button" className="plusIcon" onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}>
@@ -21,7 +22,7 @@ class AddEmExibDetalhada extends React.Component {
         <button type="button" className="minusIcon" onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}>
           <i />
         </button>
-        <button type="button" onClick={() => this.props.enviaAoCarro(this.state.qt)}>
+        <button type="button" className="btnAdd" onClick={() => enviaAoCarro(qt)}>
           Adicionar ao carrinho
         </button>
       </div>

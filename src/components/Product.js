@@ -48,11 +48,27 @@ class Product extends React.Component {
     );
   }
 
-  enviaAoCarroFim(stateQt) {
-    this.setState((state) => {
-      localStorage.setItem();
-      return ();
-    });
+  enviaAoCarroFim(quantidade) {
+    const {
+      title,
+      price,
+      thumbnail,
+    } = this.props.location.state.item;
+    const listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
+
+    if (listaProdutos) {
+      localStorage.setItem('products', JSON.stringify(
+        [...listaProdutos, {
+          title, price, thumbnail, quantidade,
+        }],
+      ));
+    } else {
+      localStorage.setItem('products', JSON.stringify(
+        [{
+          title, price, thumbnail, quantidade,
+        }],
+      ));
+    }
   }
 
   render() {
