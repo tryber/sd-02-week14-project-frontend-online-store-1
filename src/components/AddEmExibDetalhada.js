@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './AddEmExibDetalhada.css';
 
 class AddEmExibDetalhada extends React.Component {
   constructor(props) {
@@ -8,35 +9,39 @@ class AddEmExibDetalhada extends React.Component {
       qt: 1,
     };
     this.adicionando = this.adicionando.bind(this);
-
   }
-    adicionando(qt) {
-      return (
-        <div className="container">
-            <button type="button" onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}>
-              <i className="material-icons">add</i>
-            </button>
-          </div>
-          <p>{qt}</p>
-            <button type="button" onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}>
-              <i className="material-icons">remove</i>
-            </button>
-          </div>
-          <button type="button" onClick={() => this.props.enviaCard(this.state.qt)}>
-            Adicionar ao carrinho
-          </button>
-        </div>
-      );
+
+  adicionando(qt) {
+    return (
+      <div className="adding">
+        <button type="button" className="plusIcon" onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}>
+          <i />
+        </button>
+        <p className="qtdNumber">{qt}</p>
+        <button type="button" className="minusIcon" onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}>
+          <i />
+        </button>
+        <button type="button" onClick={() => this.props.enviaAoCarro(this.state.qt)}>
+          Adicionar ao carrinho
+        </button>
+      </div>
+    );
+  }
 
 
   render() {
+    const { qt } = this.state;
     return (
-      <div className="quantidade">
-        <strong>Quantidade</strong>
+      <div className="roll">
+        <p className="qtdText">Quantidade</p>
         {this.adicionando(qt)}
       </div>
     );
   }
 }
+
+AddEmExibDetalhada.propTypes = PropTypes.shape({
+  enviaAoCarro: PropTypes.func,
+}).isRequired;
 
 export default AddEmExibDetalhada;

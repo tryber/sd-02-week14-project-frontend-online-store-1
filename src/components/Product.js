@@ -4,17 +4,23 @@ import PropTypes from 'prop-types';
 import './Product.css';
 import BackArrow from '../imgs/back-arrow.png';
 import Cart from '../imgs/img_290616.png';
+import AddEmExibDetalhada from './AddEmExibDetalhada';
 import Reviews from './Reviews';
 
 class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.enviaAoCarroFim = this.enviaAoCarroFim.bind(this);
   }
 
   geraProduto() {
     const {
-      title, price, thumbnail, attributes,
+      title,
+      price,
+      thumbnail,
+      attributes,
     } = this.props.location.state.item;
     return (
       <div className="productContainer">
@@ -42,6 +48,13 @@ class Product extends React.Component {
     );
   }
 
+  enviaAoCarroFim(stateQt) {
+    this.setState((state) => {
+      localStorage.setItem();
+      return ();
+    });
+  }
+
   render() {
     return (
       <div className="body">
@@ -54,6 +67,7 @@ class Product extends React.Component {
           </Link>
         </div>
         {this.geraProduto(this.props.location.state)}
+        <AddEmExibDetalhada enviaAoCarro={this.enviaAoCarroFim} />
         <Reviews />
       </div>
     );
