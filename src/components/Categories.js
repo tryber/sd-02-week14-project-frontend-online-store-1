@@ -46,7 +46,7 @@ class Categories extends Component {
     return (
       <div className="category-box">
         <div className="category-options-box">
-          <p><strong>Categorias</strong></p>
+          <p className="categorias">Categorias</p>
           {data.map((dat) => this.renderCategory(dat.id, dat.name))}
         </div>
       </div>

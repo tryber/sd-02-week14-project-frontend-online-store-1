@@ -35,10 +35,18 @@
 .category-options-box {
   align-items: flex-start;
   border: 1px solid black;
+  border-radius: 3px;
   color: black;
   display: flex;
   flex-direction: column;
-  height: 18em;
+  height: 20em;
+  margin: 5px;
   overflow-y: scroll;
   padding: 5%;
+  width: 250px;
+}
+
+.categorias {
+  font-weight: 700;
+  margin: 5px;
 }

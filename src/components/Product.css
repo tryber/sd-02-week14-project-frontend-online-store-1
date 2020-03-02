@@ -14,9 +14,11 @@
 
 .especificacoesTecnicas {
   border: 1px solid black;
+  border-radius: 3px;
   flex-basis: 60%;
   margin: 0 20px;
   max-width: 60%;
+  padding: 10px 20px;
   width: 60%;
 }
 
@@ -25,8 +27,17 @@
   justify-content: space-between;
 }
 
+.seta {
+  width: 30px;
+}
+
+.carrinho {
+  width: 30px;
+}
+
 .productImage {
   border: 1px solid black;
+  border-radius: 3px;
   width: 20vw;
 }
 
@@ -60,4 +71,5 @@
 .titulo {
   font-size: 20px;
   font-weight: 700;
+  margin: 10px;
 }
