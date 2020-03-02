@@ -11,8 +11,6 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-
-    this.enviaAoCarroFim = this.enviaAoCarroFim.bind(this);
   }
 
   geraProduto() {
@@ -48,29 +46,6 @@ class Product extends React.Component {
     );
   }
 
-  enviaAoCarroFim(quantidade) {
-    const {
-      title,
-      price,
-      thumbnail,
-    } = this.props.location.state.item;
-    const listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
-
-    if (listaProdutos) {
-      localStorage.setItem('products', JSON.stringify(
-        [...listaProdutos, {
-          title, price, thumbnail, quantidade,
-        }],
-      ));
-    } else {
-      localStorage.setItem('products', JSON.stringify(
-        [{
-          title, price, thumbnail, quantidade,
-        }],
-      ));
-    }
-  }
-
   render() {
     return (
       <div className="body">
@@ -83,7 +58,7 @@ class Product extends React.Component {
           </Link>
         </div>
         {this.geraProduto(this.props.location.state)}
-        <AddEmExibDetalhada enviaAoCarro={this.enviaAoCarroFim} />
+        <AddEmExibDetalhada enviaAoCarro={this.props.location.state.item} />
         <Reviews />
       </div>
     );
