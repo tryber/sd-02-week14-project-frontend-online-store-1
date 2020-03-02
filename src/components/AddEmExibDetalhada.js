@@ -9,10 +9,26 @@ class AddEmExibDetalhada extends React.Component {
       qt: 1,
     };
     this.adicionando = this.adicionando.bind(this);
+    this.enviaCarro = this.enviaCarro.bind(this);
+  }
+
+  enviaCarro() {
+    const { id } = this.props.enviaAoCarro;
+    const { qt } = this.state;
+    if (!localStorage.getItem('products')) {
+      localStorage.setItem('products', JSON.stringify({ [id]: { ...this.props.enviaAoCarro, quantidade: qt } }));
+    } else {
+      const objProdutos = JSON.parse(localStorage.getItem('products'));
+      if (objProdutos[id]) {
+        objProdutos[id].quantidade += qt;
+        localStorage.setItem('products', JSON.stringify(objProdutos));
+      } else {
+        localStorage.setItem('products', JSON.stringify({ ...objProdutos, [id]: { ...this.props.enviaAoCarro, quantidade: qt } }));
+      }
+    }
   }
 
   adicionando(qt) {
-    const { enviaAoCarro } = this.props;
     return (
       <div className="adding">
         <button
@@ -30,7 +46,7 @@ class AddEmExibDetalhada extends React.Component {
         >
           <i />
         </button>
-        <button type="button" className="btnAdd" onClick={() => enviaAoCarro(qt)}>
+        <button type="button" className="btnAdd" onClick={this.enviaCarro}>
           Adicionar ao carrinho
         </button>
       </div>
