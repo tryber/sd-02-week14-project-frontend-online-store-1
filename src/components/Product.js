@@ -13,17 +13,29 @@ class Product extends React.Component {
   }
 
   geraProduto() {
-    const { title, price, thumbnail, attributes } = this.props.location.state.item;
+    const {
+      title, price, thumbnail, attributes,
+    } = this.props.location.state.item;
     return (
       <div className="productContainer">
-        <div className="titulo">{title} - R${price}</div>
+        <div className="titulo">
+          {title}
+          {' '}
+          - R$
+          {price}
+        </div>
         <div className="display">
           <img src={thumbnail} className="productImage" alt="Imagem do produto clicado" />
           <div className="especificacoesTecnicas">
             <p>Especificações Técnicas</p>
             {attributes.map((atributos) => (
-              <li key={atributos.name}>{atributos.name}: {atributos.value_name}</li>
-          ))}
+              <li key={atributos.name}>
+                {atributos.name}
+                :
+                {' '}
+                {atributos.value_name}
+              </li>
+            ))}
           </div>
         </div>
       </div>

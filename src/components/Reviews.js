@@ -33,7 +33,9 @@ class Reviews extends React.Component {
     this.setState({ rating: rate });
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(event) {
+    event.preventDefault();
+
     const {
       result,
       userEmail,
@@ -101,10 +103,10 @@ class Reviews extends React.Component {
             />
           </div>
           {this.commentInput()}
+          <button type="submit" className="reviewButton">
+            Avaliar
+          </button>
         </form>
-        <button type="submit" className="reviewButton" onClick={this.handleFormSubmit}>
-          Avaliar
-        </button>
       </div>
     );
   }
